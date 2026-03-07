@@ -11,6 +11,6 @@ def homeJuan():
 def homeAndres(): 
     return render_template ('Corredor.html')
 
-@app.route('/FirstPage/<name>')
-def firstPage(name): 
-    return render_template ('Garcia.html',name=name)
+@app.route('/')
+def firstPage(): 
+    return render_template ('Page.html')

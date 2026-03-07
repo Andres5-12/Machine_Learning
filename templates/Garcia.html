@@ -1,19 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning</title>
+<meta charset="UTF-8">
+<title>Fraud Detection using Machine Learning</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    background:white;
+    color:black;
+    margin:40px;
+    line-height:1.6;
+}
+
+h1{
+    font-size:28px;
+    font-weight:bold;
+}
+
+h2{
+    font-size:22px;
+    font-weight:bold;
+}
+
+h3{
+    font-size:18px;
+    font-weight:bold;
+}
+
+</style>
 </head>
+
 <body>
-    <h1>hola soy juan</h1>
-    <p>esta pagina sera para nuestra clase cambioo extraños hay en mi. cambiando de carrera</p>
-    <p>la buena mi genteeee nos e a lgo</p>
-    {%if name%}
-    <p> Hello,<strong> {{name}} </strong> </p>
-    {%else%}
-    <p>Hello</p>
-    {%endif%}
+
+<h1><b>Fraud Detection using Machine Learning</b></h1>
+
+<p>
+Fraud detection using Machine Learning consists of applying artificial intelligence algorithms capable of analyzing large volumes of financial data in order to identify suspicious patterns or anomalous behaviors.
+</p>
+
+<p>
+Unlike traditional rule-based systems, Machine Learning models automatically learn from historical data and improve their accuracy over time.
+</p>
+
+<p>
+This technology is widely used by banks, payment platforms, fintech companies, and e-commerce services to reduce financial losses and protect users.
+</p>
+
+<h2><b>Problem to Solve</b></h2>
+
+<p>
+Fraudulent transactions represent one of the biggest risks for financial institutions and digital platforms.
+</p>
+
+<p>
+Millions of transactions are processed every day, making it impossible to manually analyze every operation.
+</p>
+
+<ul>
+<li>Financial losses for companies</li>
+<li>Theft of money or personal information</li>
+<li>Damage to the reputation of digital platforms</li>
+<li>High operational costs for investigations</li>
+</ul>
+
+<p>
+The goal of the system is to identify suspicious transactions in real time in order to prevent fraud before it happens.
+</p>
+
+<h2><b>Machine Learning Model</b></h2>
+
+<p>
+The solution is based on a supervised predictive model that analyzes transaction behavior and classifies each operation according to its probability of being fraudulent.
+</p>
+
+<p>
+The model is trained using historical data that includes both legitimate transactions and previously identified fraudulent transactions.
+</p>
+
+<h2><b>Types of Fraud Detected</b></h2>
+
+<ul>
+<li><b>Credit card fraud:</b> unauthorized use of credit cards to make purchases or transfers.</li>
+<li><b>Account fraud:</b> illegal access to bank accounts or digital payment platforms.</li>
+<li><b>E-commerce fraud:</b> purchases made using fake identities or stolen payment information.</li>
+<li><b>Identity theft:</b> creation of accounts using stolen personal data.</li>
+</ul>
+
+<h2><b>Machine Learning System Structure</b></h2>
+
+<h3><b>1. Dataset Construction (ETL)</b></h3>
+
+<p>
+The first step consists of building the dataset through an ETL process (Extract, Transform, Load).
+</p>
+
+<p>
+Relevant variables collected include:
+</p>
+
+<ul>
+<li>Transaction amount</li>
+<li>Geographic location</li>
+<li>Transaction time</li>
+<li>Device type</li>
+<li>User history</li>
+<li>Transaction frequency</li>
+<li>Payment method used</li>
+</ul>
+
+<p>
+The data is then cleaned, transformed, and prepared for model training.
+</p>
+
+<h3><b>2. Data Splitting</b></h3>
+
+<p>The dataset is divided into three parts:</p>
+
+<ul>
+<li><b>Training set:</b> used to train the model.</li>
+<li><b>Validation set:</b> used to adjust parameters and prevent overfitting.</li>
+<li><b>Test set:</b> used to evaluate the final model performance.</li>
+</ul>
+
+<h3><b>3. Feature Selection</b></h3>
+
+<p>
+Not all variables contribute useful information to the model, so feature selection techniques are applied.
+</p>
+
+<ul>
+<li>Permutation Feature Importance</li>
+<li>Recursive Feature Elimination</li>
+<li>Correlation analysis</li>
+</ul>
+
+<p>
+This helps reduce model complexity and improve performance.
+</p>
+
+<h3><b>4. Modeling</b></h3>
+
+<p>
+During this stage several Machine Learning algorithms are trained:
+</p>
+
+<ul>
+<li>Logistic Regression</li>
+<li>Random Forest</li>
+<li>Gradient Boosting</li>
+<li>XGBoost or LightGBM</li>
+</ul>
+
+<h3><b>Model Optimization</b></h3>
+
+<p>Different optimization techniques are applied such as:</p>
+
+<ul>
+<li>Hyperparameter tuning</li>
+<li>Grid Search</li>
+<li>Random Search</li>
+<li>Optuna</li>
+<li>Cross Validation</li>
+</ul>
+
+<h3><b>5. Model Evaluation</b></h3>
+
+<p>To measure the effectiveness of the model, different performance metrics are used:</p>
+
+<ul>
+<li>Accuracy</li>
+<li>Precision</li>
+<li>Recall</li>
+<li>F1 Score</li>
+<li>Confusion Matrix</li>
+<li>AUC-ROC</li>
+</ul>
+
+<p>
+These metrics help determine how well the model detects fraud without incorrectly flagging legitimate users.
+</p>
+
+<p>
+Model interpretability tools such as <b>SHAP</b> are also used to identify which variables have the greatest impact on predictions.
+</p>
+
+<h3><b>6. Deployment and Monitoring</b></h3>
+
+<p>
+Once the model is validated, it is deployed into production to analyze transactions in real time.
+</p>
+
+<p>The system continuously monitors:</p>
+
+<ul>
+<li>Model performance</li>
+<li>Changes in fraud patterns</li>
+<li>Variable stability</li>
+<li>The need for retraining</li>
+</ul>
+
+<h2><b>Benefits of Machine Learning in Fraud Detection</b></h2>
+
+<ul>
+<li>Early identification of fraudulent activities</li>
+<li>Automatic analysis of millions of transactions</li>
+<li>Significant reduction of financial losses</li>
+<li>Automation of security processes</li>
+<li>Greater trust and safety for users</li>
+<li>Continuous adaptation to new fraud strategies</li>
+</ul>
+
+<h2><b>Conclusion</b></h2>
+
+<p>
+Machine Learning-based fraud detection has become a fundamental tool for the financial sector.
+</p>
+
+<p>
+Thanks to its ability to analyze massive datasets, detect complex behavioral patterns, and adapt to new threats, these systems help protect both companies and users.
+</p>
+
+<p>
+In an increasingly digital world, artificial intelligence plays a key role in ensuring secure and trustworthy financial transactions.
+</p>
 
 </body>
 </html>

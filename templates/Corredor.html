@@ -1,176 +1,268 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Allows the page to adapt to different devices -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Debt Risk Prediction</title>
 
-    <title>Debt Risk Prediction</title>
+<style>
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#f4f6f9;
+    margin:0;
+    padding:0;
+}
+
+header{
+    background:#1f3c88;
+    color:white;
+    text-align:center;
+    padding:35px;
+}
+
+.container{
+    width:80%;
+    margin:auto;
+    margin-top:30px;
+}
+
+.section{
+    background:white;
+    padding:30px;
+    margin-bottom:25px;
+    border-radius:8px;
+    box-shadow:0px 3px 10px rgba(0,0,0,0.1);
+}
+
+h1{
+    margin:0;
+}
+
+h2{
+    color:#1f3c88;
+}
+
+ul{
+    line-height:1.8;
+}
+
+footer{
+    text-align:center;
+    background:#1f3c88;
+    color:white;
+    padding:20px;
+    margin-top:40px;
+}
+
+</style>
+
 </head>
 
 <body>
 
-    <!-- Main title -->
+<header>
     <h1>Debt Risk Prediction</h1>
+    <p>Machine Learning Application in Financial Risk Analysis</p>
+</header>
 
-    <!-- General introduction -->
-    <p>
-        Debt Risk Prediction is a Machine Learning application used by financial
-        institutions to estimate the probability that a customer will experience
-        difficulties paying their debts in the future.
-    </p>
+<div class="container">
 
-    <p>
-        Banks manage thousands or millions of customers, and each customer
-        generates financial data through credit cards, loans, payments,
-        and other financial services. This data can reveal important
-        patterns about the financial behavior of each person.
-    </p>
+<div class="section">
 
-    <p>
-        By analyzing this information, Machine Learning models can detect
-        patterns that indicate whether a client is financially stable or
-        whether there is a risk that the client may enter a delinquency state.
-    </p>
+<h2>Introduction</h2>
 
-    <!-- Problem explanation -->
-    <h2>The Financial Problem</h2>
+<p>
+Debt Risk Prediction is an important application of Machine Learning used in the financial industry.
+Banks and financial institutions constantly manage large numbers of clients who use services such
+as credit cards, loans, and financing plans. Each of these services generates valuable information
+about the financial behavior of customers.
+</p>
 
-    <p>
-        When customers cannot pay their debts on time, several problems appear.
-        The client may face penalties, higher interest rates, and damage to
-        their credit history. At the same time, banks face financial losses
-        because the money that was lent may not be recovered.
-    </p>
+<p>
+Machine Learning allows organizations to analyze this information in order to identify patterns
+that may indicate potential financial risk. Instead of waiting for a customer to stop paying their
+debts, predictive models allow banks to anticipate possible problems before they occur.
+</p>
 
-    <p>
-        Traditionally, banks used manual credit analysis to evaluate customers,
-        but this approach becomes inefficient when dealing with very large
-        datasets. Machine Learning allows automated analysis of massive
-        financial information and improves the accuracy of risk predictions.
-    </p>
+<p>
+By analyzing historical financial data and identifying patterns in payment behavior, Machine
+Learning models can estimate the probability that a client may experience financial difficulties
+in the future. This predictive approach allows financial institutions to improve their decision
+making processes and develop strategies to reduce financial risk.
+</p>
 
-    <!-- Data collection -->
-    <h2>Data Collection and Preparation</h2>
+</div>
 
-    <p>
-        The first step in building a predictive model is collecting historical
-        financial data from previous customers. This dataset usually contains
-        records of customers who successfully paid their debts and others
-        who experienced financial problems.
-    </p>
+<div class="section">
 
-    <p>
-        Before training the model, the data must go through a preparation
-        process that includes cleaning incorrect values, removing incomplete
-        information, and organizing the variables that will be used by
-        the algorithm.
-    </p>
+<h2>The Financial Problem</h2>
 
-    <p>
-        Some of the most common variables used in debt risk prediction include:
-    </p>
+<p>
+One of the main challenges in the banking sector is the management of credit risk.
+When a bank provides a loan or a credit card, it assumes the risk that the customer
+may not be able to repay the borrowed money in the future.
+</p>
 
-    <ul>
-        <li>Sociodemographic information such as age, occupation, or income</li>
-        <li>Current debt level and number of active loans</li>
-        <li>Payment history and frequency of late payments</li>
-        <li>Credit card usage and spending patterns</li>
-        <li>Previous financial behavior and credit history</li>
-    </ul>
+<p>
+If many customers fail to repay their debts, financial institutions can experience
+significant economic losses. At the same time, customers who cannot pay their debts
+may face penalties, increased interest rates, legal consequences, and a damaged
+credit history that may affect their ability to obtain financial services in the future.
+</p>
 
-    <!-- Model training -->
-    <h2>Training the Machine Learning Model</h2>
+<p>
+Traditionally, banks relied on manual credit analysis performed by financial experts.
+However, the increasing volume of financial data has made this approach inefficient.
+Machine Learning provides a more advanced solution by automatically analyzing large
+datasets and identifying complex patterns that humans may not easily detect.
+</p>
 
-    <p>
-        After the dataset is prepared, it is divided into different groups
-        of data used for training, validation, and testing the model.
-    </p>
+</div>
 
-    <p>
-        During the training phase, Machine Learning algorithms analyze
-        thousands of examples of customer behavior. The system learns
-        the patterns that differentiate customers who pay their debts
-        regularly from those who experience financial difficulties.
-    </p>
+<div class="section">
 
-    <p>
-        Some common algorithms used in financial prediction include
-        logistic regression, decision trees, and ensemble models.
-        These algorithms learn relationships between variables
-        and generate a predictive model capable of estimating risk.
-    </p>
+<h2>Data Used in the Model</h2>
 
-    <!-- Model evaluation -->
-    <h2>Model Evaluation</h2>
+<p>
+Predictive models require large amounts of data in order to generate accurate predictions.
+Financial institutions collect and store different types of information related to the
+economic behavior of their customers.
+</p>
 
-    <p>
-        Once the model has been trained, it must be evaluated to measure
-        how well it predicts financial risk. Several evaluation metrics
-        are used to analyze the performance of the model.
-    </p>
+<p>
+This data provides insights into how customers manage their finances and how likely
+they are to fulfill their financial obligations. By analyzing these variables, the
+model can identify relationships between financial behavior and the probability
+of default or delayed payments.
+</p>
 
-    <p>
-        For example, metrics such as accuracy, recall, precision,
-        and the confusion matrix help determine how well the model
-        identifies high-risk customers.
-    </p>
+<ul>
+<li>Sociodemographic information such as age, employment status, and income level</li>
+<li>Current debt levels and number of active financial obligations</li>
+<li>Credit card usage and spending patterns</li>
+<li>History of payments, including delays or missed payments</li>
+<li>Previous financial behavior and credit history records</li>
+</ul>
 
-    <p>
-        A good model should correctly identify risky customers while
-        minimizing incorrect predictions that could affect clients
-        who are actually financially stable.
-    </p>
+<p>
+These variables allow the system to construct a detailed profile of each customer
+and detect indicators that may suggest financial instability.
+</p>
 
-    <!-- Prediction results -->
-    <h2>Risk Prediction Results</h2>
+</div>
 
-    <p>
-        After evaluation, the model can be used to analyze new customers.
-        For each person, the system calculates a risk score that represents
-        the probability that the customer might fail to pay their debts
-        in the future.
-    </p>
+<div class="section">
 
-    <p>
-        Based on this score, customers are often categorized into different
-        risk levels:
-    </p>
+<h2>Machine Learning Process</h2>
 
-    <ul>
-        <li>Low Risk – Customers with a stable financial behavior</li>
-        <li>Medium Risk – Customers with moderate uncertainty</li>
-        <li>High Risk – Customers with a high probability of delinquency</li>
-    </ul>
+<p>
+The development of a predictive model follows several stages that ensure the
+accuracy and reliability of the results. The first stage involves collecting
+historical financial data from thousands of customers.
+</p>
 
-    <!-- Benefits -->
-    <h2>Benefits of Debt Risk Prediction</h2>
+<p>
+Once the data has been collected, it must go through a preprocessing stage
+in which errors, missing values, and inconsistencies are corrected. This step
+is extremely important because the quality of the data directly affects the
+performance of the Machine Learning model.
+</p>
 
-    <p>
-        Predictive models provide important benefits for financial institutions.
-        They help banks reduce financial losses, improve credit risk management,
-        and automate decision-making processes.
-    </p>
+<p>
+After the data is prepared, it is divided into different groups known as
+training data, validation data, and testing data. The training dataset is
+used to teach the algorithm how to identify patterns, while the validation
+and testing datasets help evaluate the model's performance.
+</p>
 
-    <p>
-        For customers, these models allow banks to offer preventive solutions
-        before the situation becomes critical. These solutions may include
-        payment plans, refinancing options, or personalized financial advice.
-    </p>
+<ul>
+<li>Data collection and organization</li>
+<li>Data cleaning and preprocessing</li>
+<li>Model training using Machine Learning algorithms</li>
+<li>Evaluation using statistical metrics</li>
+<li>Prediction of customer financial risk</li>
+</ul>
 
-    <p>
-        Overall, Machine Learning improves the efficiency of financial systems,
-        increases security in lending processes, and supports more responsible
-        credit management.
-    </p>
+<p>
+Different algorithms may be used during this process, including logistic
+regression, decision trees, and ensemble learning techniques. These
+algorithms learn from historical examples and generate a model capable
+of predicting future outcomes.
+</p>
 
-    <!-- Dynamic greeting using Flask and Jinja -->
-    {% if name %}
-    <p>Hello, <strong>{{name}}</strong></p>
-    {% else %}
-    <p>Hello</p>
-    {% endif %}
+</div>
+
+<div class="section">
+
+<h2>Prediction Results</h2>
+
+<p>
+Once the model has been trained and evaluated, it can be used to analyze
+new customers. For each customer, the model calculates a risk score
+representing the probability that the client may experience financial
+difficulties in the future.
+</p>
+
+<p>
+This risk score allows banks to classify customers according to their
+level of financial risk. The classification helps financial institutions
+determine which clients require closer monitoring or preventive support.
+</p>
+
+<ul>
+<li>Low Risk – Customers with stable financial behavior and consistent payments</li>
+<li>Medium Risk – Customers with moderate financial uncertainty</li>
+<li>High Risk – Customers who show signs of possible financial distress</li>
+</ul>
+
+<p>
+These predictions allow financial institutions to allocate resources
+more efficiently and focus their risk management efforts on customers
+who may require additional support.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>Benefits of Debt Risk Prediction</h2>
+
+<p>
+Debt Risk Prediction provides several advantages for both financial
+institutions and their customers. For banks, predictive analytics helps
+reduce financial losses by identifying high-risk clients before they
+enter a delinquency situation.
+</p>
+
+<p>
+It also improves credit risk management and enables more informed
+decision-making when approving loans or offering financial products.
+By understanding the probability of default, banks can design better
+financial strategies and maintain a healthier credit portfolio.
+</p>
+
+<p>
+Customers also benefit from these predictive systems. Instead of facing
+unexpected financial problems, they may receive early support from the
+bank in the form of payment plans, refinancing options, or financial
+advice that helps them manage their obligations more effectively.
+</p>
+
+<p>
+Overall, the use of Machine Learning in debt risk prediction contributes
+to a more stable financial system by reducing uncertainty, improving
+risk analysis, and enabling proactive financial management.
+</p>
+
+</div>
+
+</div>
+
+<footer>
+<p>Machine Learning Academic Work – by Andres Corredor</p>
+</footer>
 
 </body>
 </html>

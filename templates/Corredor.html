@@ -2,18 +2,175 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+
+    <!-- Allows the page to adapt to different devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Machine Learning</title>
+
+    <title>Debt Risk Prediction</title>
 </head>
+
 <body>
+
+    <!-- Main title -->
     <h1>Debt Risk Prediction</h1>
-    <p>esta pagina sera para nuestra clase cambioo extraños hay en mi. cambiando de carrera</p>
-    <p>la buena mi genteeee nos e a lgo</p>
-    {%if name%}
-    <p> Hello,<strong> {{name}} </strong> </p>
-    {%else%}
+
+    <!-- General introduction -->
+    <p>
+        Debt Risk Prediction is a Machine Learning application used by financial
+        institutions to estimate the probability that a customer will experience
+        difficulties paying their debts in the future.
+    </p>
+
+    <p>
+        Banks manage thousands or millions of customers, and each customer
+        generates financial data through credit cards, loans, payments,
+        and other financial services. This data can reveal important
+        patterns about the financial behavior of each person.
+    </p>
+
+    <p>
+        By analyzing this information, Machine Learning models can detect
+        patterns that indicate whether a client is financially stable or
+        whether there is a risk that the client may enter a delinquency state.
+    </p>
+
+    <!-- Problem explanation -->
+    <h2>The Financial Problem</h2>
+
+    <p>
+        When customers cannot pay their debts on time, several problems appear.
+        The client may face penalties, higher interest rates, and damage to
+        their credit history. At the same time, banks face financial losses
+        because the money that was lent may not be recovered.
+    </p>
+
+    <p>
+        Traditionally, banks used manual credit analysis to evaluate customers,
+        but this approach becomes inefficient when dealing with very large
+        datasets. Machine Learning allows automated analysis of massive
+        financial information and improves the accuracy of risk predictions.
+    </p>
+
+    <!-- Data collection -->
+    <h2>Data Collection and Preparation</h2>
+
+    <p>
+        The first step in building a predictive model is collecting historical
+        financial data from previous customers. This dataset usually contains
+        records of customers who successfully paid their debts and others
+        who experienced financial problems.
+    </p>
+
+    <p>
+        Before training the model, the data must go through a preparation
+        process that includes cleaning incorrect values, removing incomplete
+        information, and organizing the variables that will be used by
+        the algorithm.
+    </p>
+
+    <p>
+        Some of the most common variables used in debt risk prediction include:
+    </p>
+
+    <ul>
+        <li>Sociodemographic information such as age, occupation, or income</li>
+        <li>Current debt level and number of active loans</li>
+        <li>Payment history and frequency of late payments</li>
+        <li>Credit card usage and spending patterns</li>
+        <li>Previous financial behavior and credit history</li>
+    </ul>
+
+    <!-- Model training -->
+    <h2>Training the Machine Learning Model</h2>
+
+    <p>
+        After the dataset is prepared, it is divided into different groups
+        of data used for training, validation, and testing the model.
+    </p>
+
+    <p>
+        During the training phase, Machine Learning algorithms analyze
+        thousands of examples of customer behavior. The system learns
+        the patterns that differentiate customers who pay their debts
+        regularly from those who experience financial difficulties.
+    </p>
+
+    <p>
+        Some common algorithms used in financial prediction include
+        logistic regression, decision trees, and ensemble models.
+        These algorithms learn relationships between variables
+        and generate a predictive model capable of estimating risk.
+    </p>
+
+    <!-- Model evaluation -->
+    <h2>Model Evaluation</h2>
+
+    <p>
+        Once the model has been trained, it must be evaluated to measure
+        how well it predicts financial risk. Several evaluation metrics
+        are used to analyze the performance of the model.
+    </p>
+
+    <p>
+        For example, metrics such as accuracy, recall, precision,
+        and the confusion matrix help determine how well the model
+        identifies high-risk customers.
+    </p>
+
+    <p>
+        A good model should correctly identify risky customers while
+        minimizing incorrect predictions that could affect clients
+        who are actually financially stable.
+    </p>
+
+    <!-- Prediction results -->
+    <h2>Risk Prediction Results</h2>
+
+    <p>
+        After evaluation, the model can be used to analyze new customers.
+        For each person, the system calculates a risk score that represents
+        the probability that the customer might fail to pay their debts
+        in the future.
+    </p>
+
+    <p>
+        Based on this score, customers are often categorized into different
+        risk levels:
+    </p>
+
+    <ul>
+        <li>Low Risk – Customers with a stable financial behavior</li>
+        <li>Medium Risk – Customers with moderate uncertainty</li>
+        <li>High Risk – Customers with a high probability of delinquency</li>
+    </ul>
+
+    <!-- Benefits -->
+    <h2>Benefits of Debt Risk Prediction</h2>
+
+    <p>
+        Predictive models provide important benefits for financial institutions.
+        They help banks reduce financial losses, improve credit risk management,
+        and automate decision-making processes.
+    </p>
+
+    <p>
+        For customers, these models allow banks to offer preventive solutions
+        before the situation becomes critical. These solutions may include
+        payment plans, refinancing options, or personalized financial advice.
+    </p>
+
+    <p>
+        Overall, Machine Learning improves the efficiency of financial systems,
+        increases security in lending processes, and supports more responsible
+        credit management.
+    </p>
+
+    <!-- Dynamic greeting using Flask and Jinja -->
+    {% if name %}
+    <p>Hello, <strong>{{name}}</strong></p>
+    {% else %}
     <p>Hello</p>
-    {%endif%}
+    {% endif %}
 
 </body>
 </html>

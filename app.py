@@ -10,6 +10,7 @@ def homeJuan():
 
 @app.route('/Andres')
 def homeAndres(): 
+    a=1
     return render_template ('Corredor.html')
 
 @app.route('/')

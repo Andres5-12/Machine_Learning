@@ -17,7 +17,29 @@ background:linear-gradient(135deg,#fff5f5,#f8d7da);
 color:#5a0f0f;
 
 }
+.back-button{
 
+position:fixed;
+top:20px;
+left:20px;
+background:#a4161a;
+color:white;
+padding:10px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0px 5px 15px rgba(0,0,0,0.15);
+transition:.3s;
+font-size:15px;
+
+}
+
+.back-button:hover{
+
+background:#6a040f;
+transform:translateY(-2px);
+
+}
 .container{
 
 width:85%;
@@ -430,5 +452,9 @@ Prediction values will appear here after using the form.
 </div>
 
 </body>
+
+<a href="/LinearRegression" class="back-button">
+← go back to the previous page
+</a>
 
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression - Tesla</title>
+</head>
+<body>
+
+    <h1>Linear Regression: Predict Tesla Closing Price</h1>
+
+    <form method="post">
+        <label for="open_price">Open Price</label> 
+        <input type="number" step="any" name="open_price" required>
+        <button type="submit">Predict</button>
+    </form>
+
+    {% if result is not none %}
+        <h2>Estimated Closing Price: {{ result }}</h2>
+    {% endif %}
+
+</body>
+</html>

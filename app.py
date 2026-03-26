@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request
-import LinearRegression
+from LinearRegression import predictPrice
 
 app = Flask (__name__)
 
@@ -25,9 +25,11 @@ def homePage():
     return render_template ('Page.html')
 
 @app.route('/LinearRegression', methods=["GET","POST"])
-def calculateGrade():
-    calculateGrade = None
+def predictPriceRoute():
+    result = None
+
     if request.method == "POST":
-        hours = float(request.form["hours"])
-        calculateGrade = LinearRegression.calculateGrade(hours)
-    return render_template("linearRegressionGrade.html", result=calculateGrade)
+        open_price = float(request.form["open_price"])
+        result = predictPrice(open_price)
+
+    return render_template("linearRegressionPrice.html", result=result)

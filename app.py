@@ -6,20 +6,15 @@ import os
 
 app = Flask(__name__)
 
-# Cargar dataset
 df = pd.read_csv("TSLA.csv")
 
-# Variables
 X = df[['Open']]
 y = df['Close']
 
-# Crear modelo
 model = LinearRegression()
 
-# Entrenar modelo
 model.fit(X,y)
 
-# Función predicción
 def predictPrice(open_price):
 
     prediction = model.predict([[open_price]])

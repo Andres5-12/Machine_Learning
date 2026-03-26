@@ -4,17 +4,24 @@ import LinearRegression
 app = Flask (__name__)
 
 
-@app.route('/Juan')
-def homeJuan(): 
-    return render_template ('fraud detection.html')
+@app.route('/FirstPage')
+def firstpage(): 
+    return render_template ('Case1.html')
 
-@app.route('/Andres')
-def homeAndres(): 
-    a=1
-    return render_template ('Debt Risk Prediction.html')
+@app.route('/SecondPage')
+def secondpage(): 
+    return render_template ('Case2.html')
+
+@app.route('/ThirdPage')
+def  thirdpage(): 
+    return render_template ('Case3.html')
+
+@app.route('/FourthPage')
+def fourthpage(): 
+    return render_template ('Case4.html')
 
 @app.route('/')
-def firstPage(): 
+def homePage(): 
     return render_template ('Page.html')
 
 @app.route('/LinearRegression', methods=["GET","POST"])

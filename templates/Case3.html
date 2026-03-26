@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Traffic Prediction using Machine Learning</title>
+
+<style>
+
+    .back-button{
+
+position:absolute;
+top:20px;
+left:20px;
+background:#b56576;
+color:white;
+padding:10px 18px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0px 4px 10px rgba(0,0,0,0.15);
+transition:0.3s;
+
+}
+
+.back-button:hover{
+
+background:#944e5e;
+transform:translateY(-2px);
+
+}
+
+body{
+
+font-family:'Segoe UI',Arial;
+margin:0;
+background:linear-gradient(135deg,#fff0f5,#fde2e4);
+color:#5a2a33;
+
+}
+
+.container{
+
+width:85%;
+margin:auto;
+padding:40px;
+
+}
+
+.main-title{
+
+font-size:40px;
+font-weight:bold;
+text-align:center;
+background:#b56576;
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:40px;
+letter-spacing:1px;
+
+}
+
+.section{
+
+font-size:30px;
+font-weight:bold;
+margin-top:50px;
+padding-left:15px;
+border-left:8px solid #e5989b;
+
+}
+
+.subtitle{
+
+font-size:22px;
+font-weight:bold;
+margin-top:25px;
+color:#8d4a5a;
+
+}
+
+.box{
+
+background:white;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0px 8px 20px rgba(181,101,118,0.15);
+
+}
+
+p{
+
+font-size:17px;
+line-height:1.7;
+
+}
+
+li{
+
+margin-bottom:8px;
+font-size:17px;
+
+}
+
+.footer{
+
+margin-top:60px;
+text-align:center;
+color:#8d4a5a;
+font-weight:bold;
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="main-title">
+Traffic Prediction using Machine Learning
+</div>
+
+<div class="box">
+
+<p>
+Traffic prediction using Machine Learning consists of using artificial intelligence algorithms to analyze traffic patterns and predict congestion levels in cities.
+</p>
+
+<p>
+These systems use historical and real time data to identify mobility patterns and improve transportation efficiency.
+</p>
+
+<p>
+This technology is essential for smart cities because it helps optimize mobility, reduce congestion, and improve transportation planning.
+</p>
+
+</div>
+
+<div class="section">Problem Description</div>
+
+<div class="box">
+
+<p>
+Traffic congestion is one of the biggest problems in modern cities due to population growth and the increasing number of vehicles.
+</p>
+
+<p>
+This situation creates several problems such as:
+</p>
+
+<ul>
+
+<li>Longer travel times</li>
+<li>Increased fuel consumption</li>
+<li>Higher pollution levels</li>
+<li>Driver stress</li>
+<li>Increased accident risk</li>
+<li>Economic losses caused by delays</li>
+
+</ul>
+
+<p>
+Traditional traffic systems cannot easily adapt to dynamic situations such as accidents, weather conditions, special events, and rush hours.
+</p>
+
+<p>
+Because of this, intelligent systems capable of analyzing large datasets and predicting traffic behavior are necessary.
+</p>
+
+</div>
+
+<div class="section">Type of Machine Learning</div>
+
+<div class="box">
+
+<div class="subtitle">Supervised Learning</div>
+
+<p>
+Supervised learning uses historical traffic data to train models capable of predicting future traffic conditions.
+</p>
+
+<ul>
+
+<li>Linear Regression</li>
+<li>Random Forest</li>
+<li>Gradient Boosting</li>
+
+</ul>
+
+<div class="subtitle">Time Series Forecasting</div>
+
+<p>
+Traffic prediction is also considered a time series problem because traffic conditions change over time.
+</p>
+
+<ul>
+
+<li>ARIMA</li>
+<li>LSTM Networks</li>
+<li>Recurrent Neural Networks</li>
+
+</ul>
+
+<div class="subtitle">Deep Learning</div>
+
+<p>
+Deep learning models can identify complex mobility patterns and nonlinear relationships between variables.
+</p>
+
+</div>
+
+<div class="section">Input Data</div>
+
+<div class="box">
+
+<div class="subtitle">Traffic Data</div>
+
+<ul>
+
+<li>Vehicle count</li>
+<li>Average speed</li>
+<li>Traffic density</li>
+<li>Traffic flow</li>
+<li>Road capacity</li>
+
+</ul>
+
+<div class="subtitle">Environmental Data</div>
+
+<ul>
+
+<li>Weather conditions</li>
+<li>Rain</li>
+<li>Temperature</li>
+<li>Visibility</li>
+
+</ul>
+
+<div class="subtitle">Geographic Data</div>
+
+<ul>
+
+<li>GPS locations</li>
+<li>Intersections</li>
+<li>Highways</li>
+<li>Road sensors</li>
+<li>Traffic cameras</li>
+
+</ul>
+
+<div class="subtitle">Temporal Data</div>
+
+<ul>
+
+<li>Time of day</li>
+<li>Day of week</li>
+<li>Holidays</li>
+<li>Special events</li>
+
+</ul>
+
+</div>
+
+<div class="section">Expected Output</div>
+
+<div class="box">
+
+<div class="subtitle">Traffic Level Prediction</div>
+
+<ul>
+
+<li>Low traffic</li>
+<li>Medium traffic</li>
+<li>Heavy traffic</li>
+
+</ul>
+
+<div class="subtitle">Travel Time Estimation</div>
+
+<p>
+The model predicts the estimated time required to travel between two locations.
+</p>
+
+<div class="subtitle">Route Optimization</div>
+
+<ul>
+
+<li>Alternative routes</li>
+<li>Recommended departure times</li>
+<li>Congestion alerts</li>
+
+</ul>
+
+</div>
+
+<div class="section">Real World Relevance</div>
+
+<div class="box">
+
+<p>
+Traffic prediction is one of the most important Machine Learning applications in smart cities.
+</p>
+
+<ul>
+
+<li>Google Maps</li>
+<li>Waze</li>
+<li>Public transportation systems</li>
+<li>Logistics companies</li>
+<li>City governments</li>
+
+</ul>
+
+<div class="subtitle">Key Benefits</div>
+
+<ul>
+
+<li>Reduced congestion</li>
+<li>Improved mobility</li>
+<li>Reduced pollution</li>
+<li>Fuel savings</li>
+<li>Improved road safety</li>
+<li>Better urban planning</li>
+
+</ul>
+
+</div>
+
+<div class="section">Conclusion</div>
+
+<div class="box">
+
+<p>
+Traffic prediction using Machine Learning is a critical technology for modern mobility systems.
+</p>
+
+<p>
+Artificial intelligence will continue to play a fundamental role in the future of intelligent transportation and smart cities.
+</p>
+
+</div>
+
+<div class="footer">
+
+Machine Learning Academic Work by Juan Garcia– Traffic Prediction Use Case
+
+</div>
+
+</div>
+
+</body>
+
+<a href="/" class="back-button">
+← Back to Menu
+</a>
+
+</html>

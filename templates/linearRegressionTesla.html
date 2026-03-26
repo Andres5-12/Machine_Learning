@@ -1,23 +1,441 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linear Regression - Tesla</title>
+
+<meta charset="UTF-8">
+
+<title>Linear Regression Concepts</title>
+
+<style>
+
+body{
+
+font-family:'Segoe UI',Arial;
+margin:0;
+background:linear-gradient(135deg,#f8f3ef,#e6d5c3);
+color:#4b3832;
+
+}
+
+.container{
+
+width:85%;
+margin:auto;
+padding:40px;
+
+}
+
+.main-title{
+
+font-size:40px;
+font-weight:bold;
+text-align:center;
+background:#6f4e37;
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:40px;
+
+}
+
+.section{
+
+font-size:30px;
+font-weight:bold;
+margin-top:50px;
+padding-left:15px;
+border-left:8px solid #a47148;
+
+}
+
+.subtitle{
+
+font-size:22px;
+font-weight:bold;
+margin-top:25px;
+
+}
+
+.box{
+
+background:#fffaf5;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0px 6px 16px rgba(0,0,0,0.08);
+
+}
+
+p{
+
+font-size:17px;
+line-height:1.7;
+
+}
+
+li{
+
+font-size:17px;
+margin-bottom:8px;
+
+}
+
+.math{
+
+background:#f3e5d8;
+padding:15px;
+border-radius:8px;
+margin:15px 0;
+font-weight:bold;
+text-align:center;
+
+}
+
+.button-section{
+
+text-align:center;
+margin-top:60px;
+
+}
+
+.example-text{
+
+font-size:18px;
+margin-bottom:20px;
+color:#6f4e37;
+
+}
+
+.example-button{
+
+background:#6f4e37;
+color:white;
+padding:15px 30px;
+border-radius:10px;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+transition:.3s;
+box-shadow:0px 5px 12px rgba(0,0,0,0.15);
+
+}
+
+.example-button:hover{
+
+background:#4b3832;
+transform:translateY(-3px);
+
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <h1>Linear Regression: Predict Tesla Closing Price</h1>
+<div class="container">
 
-    <form method="post">
-        <label for="open_price">Open Price</label> 
-        <input type="number" step="any" name="open_price" required>
-        <button type="submit">Predict</button>
-    </form>
+<div class="main-title">
+Linear Regression Concepts
+</div>
 
-    {% if result is not none %}
-        <h2>Estimated Closing Price: {{ result }}</h2>
-    {% endif %}
+<div class="section">
+What is Linear Regression
+</div>
+
+<div class="box">
+
+<p>
+Linear Regression is a supervised Machine Learning algorithm used to predict a numerical value by modeling the relationship between variables using a straight line.
+</p>
+
+<p>
+The main goal of linear regression is to find the mathematical relationship between variables and use it to make predictions.
+</p>
+
+<div class="math">
+Y = mX + b
+</div>
+
+<p>Where:</p>
+
+<ul>
+
+<li><b>Y</b> is the dependent variable</li>
+
+<li><b>X</b> is the independent variable</li>
+
+<li><b>m</b> is the slope of the line</li>
+
+<li><b>b</b> is the intercept</li>
+
+</ul>
+
+<p>
+The algorithm finds the best possible line that minimizes the difference between real values and predicted values.
+</p>
+
+</div>
+
+<div class="section">
+Independent and Dependent Variables
+</div>
+
+<div class="box">
+
+<div class="subtitle">
+Independent variables
+</div>
+
+<p>
+Independent variables are the variables used to explain or predict another variable.
+</p>
+
+<p>
+They are also called <b>features</b>.
+</p>
+
+<p>
+These variables act as the input of the model.
+</p>
+
+<p>
+Example:
+</p>
+
+<ul>
+
+<li>Size</li>
+
+<li>Location</li>
+
+<li>Number of rooms</li>
+
+</ul>
+
+<div class="subtitle">
+Dependent variable
+</div>
+
+<p>
+The dependent variable is the value we want to predict.
+</p>
+
+<p>
+It is also called the <b>target variable</b>.
+</p>
+
+<p>
+This variable depends on the independent variables.
+</p>
+
+<p>
+Example:
+</p>
+
+<p>
+House price would be the dependent variable.
+</p>
+
+</div>
+
+<div class="section">
+Training Data
+</div>
+
+<div class="box">
+
+<p>
+Training data is the dataset used to train the Machine Learning model.
+</p>
+
+<p>
+This data contains examples where the correct answer is already known.
+</p>
+
+<p>
+The model learns patterns and relationships between the independent variables and the dependent variable.
+</p>
+
+<p>
+The training process allows the model to:
+</p>
+
+<ul>
+
+<li>Learn patterns</li>
+
+<li>Detect relationships</li>
+
+<li>Reduce prediction error</li>
+
+<li>Generalize to new data</li>
+
+</ul>
+
+<p>
+Good training data is important because the model performance depends on data quality.
+</p>
+
+</div>
+
+<div class="section">
+Regression Line
+</div>
+
+<div class="box">
+
+<p>
+The regression line is the straight line that best represents the relationship between the independent and dependent variables.
+</p>
+
+<p>
+This line is calculated using mathematical optimization techniques like the <b>Least Squares Method</b>.
+</p>
+
+<p>
+The objective is to minimize the total prediction error.
+</p>
+
+<p>
+The regression line shows:
+</p>
+
+<ul>
+
+<li>The trend of the data</li>
+
+<li>The relationship between variables</li>
+
+<li>The prediction behavior</li>
+
+</ul>
+
+<p>
+If the line goes upward, the relationship is positive.
+</p>
+
+<p>
+If the line goes downward, the relationship is negative.
+</p>
+
+</div>
+
+<div class="section">
+Slope and Intercept
+</div>
+
+<div class="box">
+
+<div class="subtitle">
+Slope
+</div>
+
+<p>
+The slope represents how much the dependent variable changes when the independent variable increases by one unit.
+</p>
+
+<p>
+It shows the strength and direction of the relationship.
+</p>
+
+<p>
+If the slope is positive:
+</p>
+
+<p>
+The dependent variable increases.
+</p>
+
+<p>
+If the slope is negative:
+</p>
+
+<p>
+The dependent variable decreases.
+</p>
+
+<div class="subtitle">
+Intercept
+</div>
+
+<p>
+The intercept is the point where the regression line crosses the Y axis.
+</p>
+
+<p>
+It represents the predicted value when the independent variable equals zero.
+</p>
+
+<p>
+It can be interpreted as the starting value of the model.
+</p>
+
+</div>
+
+<div class="section">
+Application Example
+</div>
+
+<div class="box">
+
+<p>
+In this project, linear regression is applied to financial data analysis.
+</p>
+
+<p>
+The model uses historical stock market data to predict price behavior.
+</p>
+
+<p>
+The independent variables correspond to stock market indicators such as price values and trading activity.
+</p>
+
+<p>
+The dependent variable corresponds to the closing stock price.
+</p>
+
+<p>
+The model learns how price indicators influence the final daily price.
+</p>
+
+<p>
+This type of model can be useful for:
+</p>
+
+<ul>
+
+<li>Financial analysis</li>
+
+<li>Stock price prediction</li>
+
+<li>Market trend detection</li>
+
+<li>Investment decision support</li>
+
+</ul>
+
+<p>
+This example demonstrates how linear regression can be applied to real world financial prediction problems.
+</p>
+
+</div>
+
+<div class="button-section">
+
+<div class="example-text">
+Press the button below to see a practical example of how this linear regression model works with the dataset.
+</div>
+
+<a href="/Example" class="example-button">
+Example
+</a>
+
+</div>
+
+</div>
 
 </body>
+
 </html>

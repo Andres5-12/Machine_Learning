@@ -6,11 +6,12 @@ app = Flask (__name__)
 
 @app.route('/Juan')
 def homeJuan(): 
-    return render_template ('Garcia.html')
+    return render_template ('fraud detection.html')
 
 @app.route('/Andres')
 def homeAndres(): 
-    return render_template ('Corredor.html')
+    a=1
+    return render_template ('Debt Risk Prediction.html')
 
 @app.route('/')
 def firstPage(): 

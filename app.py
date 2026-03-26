@@ -4,14 +4,14 @@ import LinearRegression
 app = Flask (__name__)
 
 
-@app.route('/Juan')
+@app.route('/FirstPage')
 def homeJuan(): 
-    return render_template ('fraud detection.html')
+    return render_template ('Case1.html')
 
-@app.route('/Andres')
+@app.route('/SecondPage')
 def homeAndres(): 
     a=1
-    return render_template ('Debt Risk Prediction.html')
+    return render_template ('Case2.html')
 
 @app.route('/')
 def firstPage(): 

@@ -5,16 +5,23 @@ app = Flask (__name__)
 
 
 @app.route('/FirstPage')
-def homeJuan(): 
+def firstpage(): 
     return render_template ('Case1.html')
 
 @app.route('/SecondPage')
-def homeAndres(): 
-    a=1
+def secondpage(): 
     return render_template ('Case2.html')
 
+@app.route('/ThirdPage')
+def  thirdpage(): 
+    return render_template ('Case3.html')
+
+@app.route('/FourthPage')
+def fourthpage(): 
+    return render_template ('Case4.html')
+
 @app.route('/')
-def firstPage(): 
+def homePage(): 
     return render_template ('Page.html')
 
 @app.route('/LinearRegression', methods=["GET","POST"])

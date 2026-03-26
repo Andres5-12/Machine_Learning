@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Fraud Detection using Machine Learning</title>
+
+<style>
+
+.back-button{
+
+position:absolute;
+top:20px;
+left:20px;
+background:#2d6a4f;
+color:white;
+padding:10px 18px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0px 4px 10px rgba(0,0,0,0.15);
+transition:0.3s;
+
+}
+
+.back-button:hover{
+
+background:#1b4332;
+transform:translateY(-2px);
+
+}    
+
+body{
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin:0;
+    background:linear-gradient(135deg,#e6f7ec,#d7f5df);
+    color:#1b4332;
+}
+
+.container{
+    width:85%;
+    margin:auto;
+    padding:40px;
+}
+
+.main-title{
+    text-align:center;
+    font-size:42px;
+    font-weight:bold;
+    padding:25px;
+    background:#2d6a4f;
+    color:white;
+    border-radius:12px;
+    margin-bottom:40px;
+}
+
+.section-title{
+    font-size:30px;
+    font-weight:bold;
+    margin-top:50px;
+    margin-bottom:15px;
+    padding-left:15px;
+    border-left:8px solid #52b788;
+}
+
+.subtitle{
+    font-size:22px;
+    font-weight:bold;
+    margin-top:25px;
+}
+
+.box{
+    background:white;
+    border-radius:12px;
+    padding:25px;
+    margin-top:15px;
+    box-shadow:0 6px 14px rgba(0,0,0,0.08);
+}
+
+p{
+    line-height:1.7;
+    font-size:17px;
+}
+
+ul{
+    margin-top:10px;
+}
+
+li{
+    margin-bottom:7px;
+}
+
+.separator{
+    height:3px;
+    background:#95d5b2;
+    margin:40px 0;
+}
+
+.footer{
+    text-align:center;
+    margin-top:60px;
+    padding:20px;
+    color:#2d6a4f;
+    font-size:14px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="main-title">
+Fraud Detection using Machine Learning
+</div>
+
+<div class="box">
+
+<p>
+Fraud detection using Machine Learning consists of applying artificial intelligence algorithms capable of analyzing large volumes of financial data in order to identify suspicious patterns or anomalous behaviors.
+</p>
+
+<p>
+Unlike traditional rule-based systems, Machine Learning models automatically learn from historical data and improve their accuracy over time.
+</p>
+
+<p>
+This technology is widely used by banks, payment platforms, fintech companies, and e-commerce services to reduce financial losses and protect users.
+</p>
+
+</div>
+
+<div class="section-title">Problem Description</div>
+
+<div class="box">
+
+<p>
+Financial fraud represents one of the biggest challenges for financial institutions and digital platforms.
+</p>
+
+<p>
+Millions of transactions are processed daily, making manual analysis impossible. Traditional rule-based systems are limited because fraud techniques constantly evolve.
+</p>
+
+<ul>
+<li>Large financial losses</li>
+<li>Theft of money or sensitive information</li>
+<li>Damage to company reputation</li>
+<li>High investigation costs</li>
+<li>Loss of customer trust</li>
+<li>Regulatory risks</li>
+</ul>
+
+<p>
+Another important challenge is false positives, where legitimate transactions may be incorrectly blocked.
+</p>
+
+<p>
+The objective of the system is to detect suspicious transactions in real time to prevent fraud before it occurs.
+</p>
+
+</div>
+
+<div class="section-title">Type of Machine Learning</div>
+
+<div class="box">
+
+<div class="subtitle">Supervised Learning</div>
+
+<p>
+The model is trained using labeled historical data where transactions are classified as fraudulent or legitimate.
+</p>
+
+<ul>
+<li>Logistic Regression</li>
+<li>Random Forest</li>
+<li>Gradient Boosting</li>
+<li>XGBoost</li>
+<li>LightGBM</li>
+</ul>
+
+<div class="subtitle">Classification</div>
+
+<p>
+Fraud detection is mainly a binary classification problem where the model determines whether a transaction is fraud or not.
+</p>
+
+<div class="subtitle">Anomaly Detection</div>
+
+<p>
+These techniques allow the detection of unusual behaviors that do not match normal user activity.
+</p>
+
+<ul>
+<li>Isolation Forest</li>
+<li>Local Outlier Factor</li>
+<li>One Class SVM</li>
+</ul>
+
+</div>
+
+<div class="section-title">Input Data</div>
+
+<div class="box">
+
+<div class="subtitle">Transaction Data</div>
+
+<ul>
+<li>Transaction amount</li>
+<li>Transaction type</li>
+<li>Date and time</li>
+<li>Currency</li>
+<li>Transaction frequency</li>
+</ul>
+
+<div class="subtitle">User Data</div>
+
+<ul>
+<li>User transaction history</li>
+<li>Account age</li>
+<li>User activity level</li>
+<li>Historical behavior</li>
+</ul>
+
+<div class="subtitle">Device Data</div>
+
+<ul>
+<li>IP address</li>
+<li>Device type</li>
+<li>Operating system</li>
+<li>Browser</li>
+<li>Device identifier</li>
+</ul>
+
+<div class="subtitle">Geographic Data</div>
+
+<ul>
+<li>Country</li>
+<li>City</li>
+<li>Distance between transactions</li>
+<li>Suspicious location changes</li>
+</ul>
+
+<div class="subtitle">Behavioral Data</div>
+
+<ul>
+<li>Purchase patterns</li>
+<li>Usual transaction hours</li>
+<li>Average spending</li>
+<li>Behavior changes</li>
+</ul>
+
+</div>
+
+<div class="section-title">Expected Output</div>
+
+<div class="box">
+
+<div class="subtitle">Fraud Score</div>
+
+<p>
+A probability value between 0 and 1 indicating fraud risk.
+</p>
+
+<ul>
+<li>Low risk</li>
+<li>Medium risk</li>
+<li>High risk</li>
+</ul>
+
+<div class="subtitle">Transaction Classification</div>
+
+<ul>
+<li>Fraudulent transaction</li>
+<li>Legitimate transaction</li>
+</ul>
+
+<div class="subtitle">Automated Actions</div>
+
+<ul>
+<li>Approve transaction</li>
+<li>Request additional verification</li>
+<li>Block suspicious transactions</li>
+<li>Generate alerts</li>
+<li>Notify users</li>
+</ul>
+
+</div>
+
+<div class="section-title">Machine Learning System Structure</div>
+
+<div class="subtitle">1. Dataset Construction (ETL)</div>
+
+<div class="box">
+
+<p>
+The first step consists of building the dataset through an ETL process.
+</p>
+
+<ul>
+<li>Transaction amount</li>
+<li>Geographic location</li>
+<li>Transaction time</li>
+<li>Device type</li>
+<li>User history</li>
+<li>Transaction frequency</li>
+<li>Payment method</li>
+</ul>
+
+<p>
+Data is cleaned, transformed and prepared before training.
+</p>
+
+</div>
+
+<div class="subtitle">2. Data Splitting</div>
+
+<div class="box">
+
+<ul>
+<li>Training dataset</li>
+<li>Validation dataset</li>
+<li>Testing dataset</li>
+</ul>
+
+</div>
+
+<div class="subtitle">3. Feature Engineering and Selection</div>
+
+<div class="box">
+
+<ul>
+<li>Feature engineering</li>
+<li>Correlation analysis</li>
+<li>Recursive Feature Elimination</li>
+<li>Permutation Importance</li>
+</ul>
+
+</div>
+
+<div class="subtitle">4. Modeling</div>
+
+<div class="box">
+
+<ul>
+<li>Logistic Regression</li>
+<li>Random Forest</li>
+<li>Gradient Boosting</li>
+<li>XGBoost</li>
+<li>LightGBM</li>
+</ul>
+
+<div class="subtitle">Model Optimization</div>
+
+<ul>
+<li>Hyperparameter tuning</li>
+<li>Grid Search</li>
+<li>Random Search</li>
+<li>Cross Validation</li>
+</ul>
+
+</div>
+
+<div class="subtitle">5. Model Evaluation</div>
+
+<div class="box">
+
+<ul>
+<li>Accuracy</li>
+<li>Precision</li>
+<li>Recall</li>
+<li>F1 Score</li>
+<li>Confusion Matrix</li>
+<li>ROC-AUC</li>
+</ul>
+
+<p>
+These metrics evaluate how well the model detects fraud while minimizing false positives.
+</p>
+
+</div>
+
+<div class="subtitle">6. Deployment and Monitoring</div>
+
+<div class="box">
+
+<ul>
+<li>Real time transaction analysis</li>
+<li>Performance monitoring</li>
+<li>Fraud pattern evolution</li>
+<li>Data drift detection</li>
+<li>Periodic retraining</li>
+</ul>
+
+</div>
+
+<div class="section-title">Real World Relevance</div>
+
+<div class="box">
+
+<p>
+Fraud detection is one of the most important real world applications of Machine Learning.
+</p>
+
+<p>
+It is used in:
+</p>
+
+<ul>
+<li>Banks</li>
+<li>Fintech companies</li>
+<li>Payment platforms</li>
+<li>E-commerce companies</li>
+<li>Credit card companies</li>
+</ul>
+
+<div class="subtitle">Key Benefits</div>
+
+<ul>
+<li>Reduction of financial losses</li>
+<li>Real time monitoring</li>
+<li>Security automation</li>
+<li>Improved customer trust</li>
+<li>Detection of new fraud strategies</li>
+<li>Operational cost reduction</li>
+<li>Better user experience</li>
+</ul>
+
+</div>
+
+<div class="section-title">Conclusion</div>
+
+<div class="box">
+
+<p>
+Machine Learning fraud detection systems are essential tools in modern financial security.
+</p>
+
+<p>
+Their ability to analyze large datasets, detect complex patterns, and adapt to new fraud techniques makes them highly effective.
+</p>
+
+<p>
+Artificial intelligence will continue playing a critical role in protecting digital financial systems.
+</p>
+
+</div>
+
+<div class="footer">
+Machine Learning Academic Work by Juan Garcia– Fraud Detection Use Case
+</div>
+
+</div>
+
+</body>
+
+<a href="/" class="back-button">
+← Back to Menu
+</a> 
+</html>

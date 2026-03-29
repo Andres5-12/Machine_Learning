@@ -4,106 +4,236 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>Machine Learning Academic Work</title>
 
 <style>
 
 body{
-    font-family:"Georgia","Times New Roman",serif;
-    background:#fff7f3;
-    margin:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
+font-family:"Georgia","Times New Roman",serif;
+background:#fff7f3;
+margin:0;
+padding-top:110px;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
 }
 
-.center-btn{
-grid-column:1 / 3;
-width:50%;
-margin:auto;
-}
 
-.page{
-    width:900px;
-    background:white;
-    padding:60px;
-    border-radius:10px;
-    box-shadow:0 10px 25px rgba(0,0,0,0.08);
-    text-align:center;
-}
+.navbar{
 
-.title{
-    font-size:38px;
-    font-weight:bold;
-    color:#d98c7b;
-    margin-bottom:10px;
-}
-
-.subtitle{
-    font-size:20px;
-    color:#444;
-    margin-bottom:30px;
-}
-
-.line{
-    width:120px;
-    height:3px;
-    background:#f2b6a0;
-    margin:25px auto;
-}
-
-.intro{
-    font-size:18px;
-    line-height:1.7;
-    margin-bottom:35px;
-}
-
-.authors{
-    margin-top:20px;
-}
-
-.author{
-    margin:15px 0;
-    font-size:18px;
-}
-
-.info{
-    margin-top:35px;
-    font-size:16px;
-    line-height:1.6;
-    color:#333;
-}
-
-.footer{
-    margin-top:40px;
-    font-size:15px;
-    color:#777;
-}
-
-.buttons{
-margin-top:40px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:20px;
-}
-
-.btn{
+position:fixed;
+top:0;
+left:0;
+width:100%;
 background:#d98c7b;
+padding:18px 0;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+z-index:1000;
+
+display:flex;
+justify-content:center;
+
+}
+
+.nav-container{
+
+width:900px;
+display:flex;
+justify-content:center;
+gap:35px;
+
+}
+
+
+
+.nav-item{
+
+position:relative;
+
+}
+
+.nav-btn{
+
 color:white;
-padding:15px;
-border-radius:8px;
 text-decoration:none;
 font-size:17px;
 font-weight:bold;
-transition:0.3s;
-box-shadow:0 5px 12px rgba(0,0,0,0.1);
+padding:10px 18px;
+border-radius:7px;
+transition:.3s;
+display:block;
+
 }
 
-.btn:hover{
+.nav-btn:hover{
+
 background:#c37463;
-transform:translateY(-3px);
+
+}
+
+
+.arrow{
+
+font-size:12px;
+margin-left:6px;
+
+}
+
+/* DROPDOWN */
+
+.dropdown{
+
+position:absolute;
+top:48px;
+left:0;
+background:white;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+min-width:240px;
+
+opacity:0;
+visibility:hidden;
+
+transform:translateY(-10px);
+transition:.3s;
+
+}
+
+.nav-item:hover > .dropdown{
+
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+
+}
+
+.dropdown a{
+
+display:block;
+padding:13px 18px;
+text-decoration:none;
+color:#444;
+font-size:15px;
+transition:.2s;
+
+}
+
+.dropdown a:hover{
+
+background:#fff0ec;
+color:#d98c7b;
+padding-left:25px;
+
+}
+
+/* SECOND LEVEL */
+
+.dropdown-item{
+
+position:relative;
+
+}
+
+.sub-dropdown{
+
+position:absolute;
+top:0;
+left:240px;
+background:white;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+min-width:200px;
+
+opacity:0;
+visibility:hidden;
+
+transition:.3s;
+
+}
+
+.dropdown-item:hover .sub-dropdown{
+
+opacity:1;
+visibility:visible;
+
+}
+
+/* PAGE */
+
+.page{
+
+width:900px;
+background:white;
+padding:60px;
+border-radius:10px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+text-align:center;
+
+}
+
+.title{
+
+font-size:38px;
+font-weight:bold;
+color:#d98c7b;
+margin-bottom:10px;
+
+}
+
+.subtitle{
+
+font-size:20px;
+color:#444;
+margin-bottom:30px;
+
+}
+
+.line{
+
+width:120px;
+height:3px;
+background:#f2b6a0;
+margin:25px auto;
+
+}
+
+.intro{
+
+font-size:18px;
+line-height:1.7;
+margin-bottom:35px;
+
+}
+
+.authors{
+
+margin-top:20px;
+
+}
+
+.author{
+
+margin:15px 0;
+font-size:18px;
+
+}
+
+.info{
+
+margin-top:35px;
+font-size:16px;
+line-height:1.6;
+color:#333;
+
+}
+
+.footer{
+
+margin-top:40px;
+font-size:15px;
+color:#777;
+
 }
 
 </style>
@@ -111,6 +241,122 @@ transform:translateY(-3px);
 </head>
 
 <body>
+
+<div class="navbar">
+
+<div class="nav-container">
+
+<div class="nav-item">
+
+<a href="/" class="nav-btn">
+Home
+</a>
+
+</div>
+
+<div class="nav-item">
+
+<a class="nav-btn">
+ML Use Cases <span class="arrow">▼</span>
+</a>
+
+<div class="dropdown">
+
+<a href="/FirstPage">
+Debt Risk Prediction
+</a>
+
+<a href="/SecondPage">
+Recommendation Systems
+</a>
+
+<a href="/ThirdPage">
+Traffic Prediction
+</a>
+
+<a href="/FourthPage">
+Fraud Detection
+</a>
+
+</div>
+
+</div>
+
+<div class="nav-item">
+
+<a class="nav-btn">
+Supervised ML <span class="arrow">▼</span>
+</a>
+
+<div class="dropdown">
+
+<div class="dropdown-item">
+
+<a>
+Linear Regression ▶
+</a>
+
+<div class="sub-dropdown">
+
+<a href="/LinearRegressionBasics">
+Basic Concepts
+</a>
+
+<a href="/Example">
+Application
+</a>
+
+</div>
+
+</div>
+
+<div class="dropdown-item">
+
+<a>
+Logistic Regression ▶
+</a>
+
+<div class="sub-dropdown">
+
+<a href="/LogisticBasics">
+Basic Concepts
+</a>
+
+<a href="/LogisticApp">
+Application
+</a>
+
+</div>
+
+</div>
+
+<div class="dropdown-item">
+
+<a>
+Assigned Classification ▶
+</a>
+
+<div class="sub-dropdown">
+
+<a href="/ClassificationBasics">
+Basic Concepts
+</a>
+
+<a href="/ClassificationApp">
+Application
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <div class="page">
 
@@ -197,30 +443,6 @@ Fraud Detection using Machine Learning
 </div>
 
 <div class="line"></div>
-
-<div class="buttons">
-
-<a href="/FirstPage" class="btn">
-Debt Risk Prediction
-</a>
-
-<a href="/SecondPage" class="btn">
-Recommendation Systems
-</a>
-
-<a href="/ThirdPage" class="btn">
-Traffic Prediction
-</a>
-
-<a href="/FourthPage" class="btn">
-Fraud Detection
-</a>
-
-<a href="/LinearRegression" class="btn center-btn">
-Linear Regression Example
-</a>
-
-</div>
 
 <div class="footer">
 

@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Logistic Regression Concepts</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',Arial;
+margin:0;
+background:linear-gradient(135deg,#eef2f7,#d6e4f0);
+color:#2f3e46;
+}
+
+.back-button{
+position:absolute;
+top:20px;
+left:20px;
+background:#3a5a78;
+color:white;
+padding:10px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0px 4px 12px rgba(0,0,0,0.15);
+transition:.3s;
+}
+
+.back-button:hover{
+background:#2f3e46;
+transform:translateY(-2px);
+}
+
+.container{
+width:85%;
+margin:auto;
+padding:40px;
+}
+
+.main-title{
+font-size:40px;
+font-weight:bold;
+text-align:center;
+background:#3a5a78;
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:40px;
+}
+
+.section{
+font-size:30px;
+font-weight:bold;
+margin-top:50px;
+padding-left:15px;
+border-left:8px solid #5f8aa6;
+}
+
+.subtitle{
+font-size:22px;
+font-weight:bold;
+margin-top:25px;
+}
+
+.box{
+background:#f7fbff;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0px 6px 16px rgba(0,0,0,0.08);
+}
+
+p{
+font-size:17px;
+line-height:1.7;
+}
+
+li{
+font-size:17px;
+margin-bottom:8px;
+}
+
+.math{
+background:#ddeaf5;
+padding:15px;
+border-radius:8px;
+margin:15px 0;
+font-weight:bold;
+text-align:center;
+}
+
+.button-section{
+text-align:center;
+margin-top:60px;
+}
+
+.example-text{
+font-size:18px;
+margin-bottom:20px;
+color:#3a5a78;
+}
+
+.example-button{
+background:#3a5a78;
+color:white;
+padding:15px 30px;
+border-radius:10px;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+transition:.3s;
+box-shadow:0px 5px 12px rgba(0,0,0,0.15);
+}
+
+.example-button:hover{
+background:#2f3e46;
+transform:translateY(-3px);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="main-title">
+Logistic Regression Concepts
+</div>
+
+<div class="section">
+What is Logistic Regression
+</div>
+
+<div class="box">
+
+<p>
+Logistic Regression is a supervised Machine Learning algorithm used for classification problems, where the output is a category rather than a numerical value.
+</p>
+
+<p>
+Its main objective is to estimate the probability that a given input belongs to a specific class.
+</p>
+
+<div class="math">
+f(x) = 1 / (1 + e<sup>-x</sup>)
+</div>
+
+<p>Where:</p>
+
+<ul>
+<li><b>f(x)</b> represents the probability</li>
+<li><b>e</b> is Euler's number</li>
+<li><b>x</b> is the linear combination of input variables</li>
+</ul>
+
+<p>
+The output is a value between 0 and 1, which can be interpreted as probability.
+</p>
+
+</div>
+
+<div class="section">
+Independent and Dependent Variables
+</div>
+
+<div class="box">
+
+<div class="subtitle">
+Independent Variables
+</div>
+
+<p>
+Independent variables are the inputs used to make predictions.
+</p>
+
+<p>
+They are also called <b>features</b>.
+</p>
+
+<p>
+These variables represent the characteristics of the data.
+</p>
+
+<p>Examples:</p>
+
+<ul>
+<li>Age</li>
+<li>Income</li>
+<li>Credit history</li>
+</ul>
+
+<div class="subtitle">
+Dependent Variable
+</div>
+
+<p>
+The dependent variable is the value we want to predict.
+</p>
+
+<p>
+It is also called the <b>target variable</b>.
+</p>
+
+<p>
+In logistic regression, this variable is categorical.
+</p>
+
+<p>Example:</p>
+
+<p>
+1 = High Risk, 0 = Low Risk
+</p>
+
+</div>
+
+<div class="section">
+Training Data
+</div>
+
+<div class="box">
+
+<p>
+Training data is the dataset used to train the Machine Learning model.
+</p>
+
+<p>
+It contains examples where the correct output is already known.
+</p>
+
+<p>
+During training, the model learns:
+</p>
+
+<ul>
+<li>Patterns in the data</li>
+<li>Relationships between variables</li>
+<li>How to make predictions</li>
+</ul>
+
+<p>
+Good training data improves accuracy and model performance.
+</p>
+
+</div>
+
+<div class="section">
+Sigmoid Function
+</div>
+
+<div class="box">
+
+<p>
+The sigmoid function is the core of logistic regression.
+</p>
+
+<p>
+It transforms any input value into a probability between 0 and 1.
+</p>
+
+<p>
+Its behavior is:
+</p>
+
+<ul>
+<li>Large values → close to 1</li>
+<li>Small values → close to 0</li>
+</ul>
+
+<p>
+This allows the model to interpret outputs as probabilities.
+</p>
+
+</div>
+
+<div class="section">
+Classification Decision
+</div>
+
+<div class="box">
+
+<p>
+After computing the probability, the model makes a classification decision.
+</p>
+
+<ul>
+<li>If probability ≥ 0.5 → Class 1</li>
+<li>If probability < 0.5 → Class 0</li>
+</ul>
+
+<p>
+This threshold can be adjusted depending on the problem.
+</p>
+
+</div>
+
+<div class="section">
+Application Example
+</div>
+
+<div class="box">
+
+<p>
+In this project, logistic regression is applied to financial risk prediction.
+</p>
+
+<p>
+The model uses data such as:
+</p>
+
+<ul>
+<li>Income</li>
+<li>Age</li>
+<li>Debt</li>
+<li>Financial history</li>
+</ul>
+
+<p>
+The target variable determines whether a person is:
+</p>
+
+<ul>
+<li>High risk</li>
+<li>Low risk</li>
+</ul>
+
+<p>
+This model helps analyze financial behavior and supports decision making.
+</p>
+
+<p>
+It can be useful for:
+</p>
+
+<ul>
+<li>Credit risk analysis</li>
+<li>Fraud detection</li>
+<li>Customer evaluation</li>
+<li>Financial decision support</li>
+</ul>
+
+</div>
+
+<div class="button-section">
+
+<div class="example-text">
+Press the button below to see a practical example of how this logistic regression model works with the dataset.
+</div>
+
+<a href="/Example" class="example-button">
+Example
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+<a href="/" class="back-button">
+← Back to Menu
+</a>
+
+</html>

@@ -10,13 +10,12 @@
 <style>
 
 body{
-
 font-family:'Segoe UI',Arial;
 margin:0;
 background:linear-gradient(135deg,#fff5f5,#f8d7da);
 color:#5a0f0f;
-
 }
+
 .back-button{
 
 position:fixed;
@@ -40,6 +39,7 @@ background:#6a040f;
 transform:translateY(-2px);
 
 }
+
 .container{
 
 width:85%;
@@ -173,12 +173,14 @@ box-shadow:0 5px 15px rgba(0,0,0,0.15);
 
 <body>
 
+<a href="/LinearRegression" class="back-button">
+← go back to the previous page
+</a>
+
 <div class="container">
 
 <div class="title">
-
 Linear Regression Practical Example
-
 </div>
 
 <div class="section">
@@ -290,9 +292,7 @@ The scatter points represent real historical data while the red line represents 
 <img src="{{ url_for('static', filename='regression.png') }}" width="550">
 
 <p>
-
 Prediction generated for Open Price <b>{{ open_price }}</b>
-
 </p>
 
 </div>
@@ -328,23 +328,16 @@ This demonstrates how linear regression can detect relationships between financi
 {% if result is not none %}
 
 <p>
-
 For an opening price of <b>{{ open_price }}</b>,
-the model predicts a closing price of
-<b>{{ result }}</b>.
-
+the model predicts a closing price of <b>{{ result }}</b>.
 </p>
 
 <p>
-
 This suggests a positive correlation between opening and closing prices according to the trained Tesla regression model.
-
 </p>
 
 <p>
-
 This type of prediction can help analysts estimate possible market behavior based on early trading values.
-
 </p>
 
 {% else %}
@@ -364,9 +357,7 @@ Prediction Form (Flask)
 <div class="form-box">
 
 <div class="example-title">
-
 Enter an opening price to predict the closing price
-
 </div>
 
 <form method="post">
@@ -378,9 +369,7 @@ Enter an opening price to predict the closing price
 <input type="number" step="any" name="open_price" required>
 
 <button type="submit">
-
 Predict
-
 </button>
 
 </form>
@@ -388,9 +377,7 @@ Predict
 {% if result is not none %}
 
 <div class="result">
-
 Estimated Closing Price: {{ result }}
-
 </div>
 
 {% endif %}
@@ -414,35 +401,25 @@ This demonstrates how a trained model can be used in a real application using Fl
 {% if result is not none %}
 
 <p>
-
 <b>Input value:</b> {{ open_price }}
-
 </p>
 
 <p>
-
 <b>Predicted value:</b> {{ result }}
-
 </p>
 
 <p>
-
 The regression graph highlights this prediction compared to the historical Tesla stock behavior.
-
 </p>
 
 <p>
-
 This demonstrates how Machine Learning models transform numerical input into useful financial predictions.
-
 </p>
 
 {% else %}
 
 <p>
-
 Prediction values will appear here after using the form.
-
 </p>
 
 {% endif %}
@@ -452,9 +429,5 @@ Prediction values will appear here after using the form.
 </div>
 
 </body>
-
-<a href="/LinearRegression" class="back-button">
-← go back to the previous page
-</a>
 
 </html>

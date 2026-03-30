@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Random Forest Application</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',Arial;
+margin:0;
+background:linear-gradient(135deg,#eef7f1,#d4f1e4);
+color:#2f3e46;
+}
+
+.back-button{
+position:fixed;
+top:20px;
+left:20px;
+background:#2d6a4f;
+color:white;
+padding:10px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+}
+
+.container{
+width:85%;
+margin:auto;
+padding:40px;
+}
+
+.title{
+font-size:38px;
+font-weight:bold;
+text-align:center;
+background:#2d6a4f;
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:40px;
+}
+
+.section{
+font-size:28px;
+font-weight:bold;
+margin-top:50px;
+padding-left:15px;
+border-left:8px solid #52b788;
+}
+
+.box{
+background:white;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0 6px 16px rgba(0,0,0,0.08);
+}
+
+.metric{
+font-size:20px;
+margin-top:10px;
+}
+
+img{
+border-radius:10px;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="title">
+Random Forest - Application Example
+</div>
+
+<!-- PROBLEM -->
+
+<div class="section">Problem Description</div>
+
+<div class="box">
+
+<p>
+This project aims to predict employee burnout levels using a Random Forest classification model.
+</p>
+
+<p>
+The objective is to classify employees into two categories:
+</p>
+
+<ul>
+<li>Low Burnout</li>
+<li>High Burnout</li>
+</ul>
+
+<p>
+This type of model helps organizations identify at-risk employees and take preventive actions.
+</p>
+
+</div>
+
+<!-- DATASET -->
+
+<div class="section">Dataset Explanation</div>
+
+<div class="box">
+
+<p>
+Dataset used: <b>Mental Health Burnout Dataset</b>
+</p>
+
+<p>
+The dataset contains information about employee work conditions and mental health indicators.
+</p>
+
+</div>
+
+<!-- VARIABLES -->
+
+<div class="section">Variables Used</div>
+
+<div class="box">
+
+<p><b>Independent Variables:</b></p>
+
+<ul>
+<li>Work hours</li>
+<li>Stress level</li>
+<li>Mental fatigue score</li>
+<li>Work environment</li>
+</ul>
+
+<p><b>Dependent Variable:</b></p>
+
+<ul>
+<li>Burnout Level (0 = Low, 1 = High)</li>
+</ul>
+
+</div>
+
+<!-- PREPARATION -->
+
+<div class="section">Data Preparation</div>
+
+<div class="box">
+
+<ul>
+<li>Removed "Medium" burnout category</li>
+<li>Handled missing values</li>
+<li>Encoded categorical variables</li>
+<li>Split dataset into training and testing sets</li>
+<li>Scaled numerical features</li>
+</ul>
+
+</div>
+
+<!-- TRAINING -->
+
+<div class="section">Model Training</div>
+
+<div class="box">
+
+<p>
+A Random Forest Classifier was trained using multiple decision trees to improve prediction accuracy.
+</p>
+
+<p>
+The model learns patterns from the training data and applies them to unseen data.
+</p>
+
+</div>
+
+<!-- RESULTS -->
+
+<div class="section">Prediction Results</div>
+
+<div class="box">
+
+{% if accuracy %}
+
+<p class="metric">Accuracy: <b>{{ accuracy }}</b></p>
+<p class="metric">Precision: <b>{{ precision }}</b></p>
+<p class="metric">Recall: <b>{{ recall }}</b></p>
+<p class="metric">F1 Score: <b>{{ f1 }}</b></p>
+<p class="metric">AUC: <b>{{ auc }}</b></p>
+
+{% else %}
+
+<p>Results will appear after model execution.</p>
+
+{% endif %}
+
+</div>
+
+<!-- CONFUSION MATRIX -->
+
+<div class="section">Confusion Matrix</div>
+
+<div class="box">
+
+<p>
+This matrix shows correct and incorrect predictions.
+</p>
+
+{% if accuracy %}
+
+<img src="{{ url_for('static', filename='rf_confusion_matrix.png') }}" width="450">
+
+{% else %}
+
+<p>Confusion matrix will appear after training.</p>
+
+{% endif %}
+
+</div>
+
+<!-- ROC -->
+
+<div class="section">ROC Curve / AUC</div>
+
+<div class="box">
+
+<p>
+The ROC curve evaluates model performance across different thresholds.
+</p>
+
+{% if accuracy %}
+
+<img src="{{ url_for('static', filename='rf_roc_curve.png') }}" width="450">
+
+{% else %}
+
+<p>ROC curve will appear after training.</p>
+
+{% endif %}
+
+</div>
+
+<!-- INTERPRETATION -->
+
+<div class="section">Interpretation of Results</div>
+
+<div class="box">
+
+{% if accuracy %}
+
+<p>
+The model achieved an accuracy of <b>{{ accuracy }}</b>, indicating its overall correctness.
+</p>
+
+<p>
+Precision (<b>{{ precision }}</b>) reflects how reliable positive predictions are.
+</p>
+
+<p>
+Recall (<b>{{ recall }}</b>) shows how well the model detects actual burnout cases.
+</p>
+
+<p>
+The F1 score balances precision and recall, providing a combined performance metric.
+</p>
+
+<p>
+The AUC value (<b>{{ auc }}</b>) indicates the model’s ability to distinguish between classes.
+</p>
+
+<p>
+Overall, the Random Forest model provides strong performance for burnout classification.
+</p>
+
+{% else %}
+
+<p>Interpretation will appear after model execution.</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+
+<a href="/RandomForest" class="back-button">
+← go back
+</a>
+
+</html>

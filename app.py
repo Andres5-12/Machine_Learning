@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 import os
 from LogisticRegression import getMetrics
+from RandomForest import getMetricsRF
 
 app = Flask(__name__)
 
@@ -51,6 +52,10 @@ def predictPriceRoute():
 @app.route('/LogisticRegression')
 def logisticRegression(): 
     return render_template ('LogisticRegression.html')
+
+@app.route('/RandomForest')
+def randomForest(): 
+    return render_template ('randomForest.html')
 
 @app.route('/ExampleLO')
 def exampleLogistic():
@@ -119,4 +124,19 @@ def examplepage():
         "exampleLI.html",
         result=result,
         open_price=open_price
+    )
+
+
+@app.route('/ExampleRA')
+def exampleRA():
+
+    accuracy, precision, recall, f1, auc = getMetricsRF()
+
+    return render_template(
+        "exampleRA.html",
+        accuracy=accuracy,
+        precision=precision,
+        recall=recall,
+        f1=f1,
+        auc=auc
     )

@@ -3,6 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.linear_model import LinearRegression
 import os
+from LogisticRegression import getMetrics
 
 app = Flask(__name__)
 
@@ -50,6 +51,27 @@ def predictPriceRoute():
 @app.route('/LogisticRegression')
 def logisticRegression(): 
     return render_template ('LogisticRegression.html')
+
+@app.route('/ExampleLO')
+def exampleLogistic():
+
+    accuracy,precision,recall,f1,auc = getMetrics()
+
+    return render_template(
+
+        "exampleLO.html",
+
+        accuracy=accuracy,
+
+        precision=precision,
+
+        recall=recall,
+
+        f1=f1,
+
+        auc=auc
+
+    )
 
 @app.route('/ExampleLI', methods=["GET","POST"])
 def examplepage():

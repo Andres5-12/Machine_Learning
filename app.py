@@ -47,7 +47,11 @@ def homePage():
 def predictPriceRoute(): 
     return render_template ('linearRegressionTesla.html')
 
-@app.route('/Example', methods=["GET","POST"])
+@app.route('/LogisticRegression')
+def logisticRegression(): 
+    return render_template ('LogisticRegression.html')
+
+@app.route('/ExampleLI', methods=["GET","POST"])
 def examplepage():
 
     result = None
@@ -90,7 +94,7 @@ def examplepage():
         plt.close()
 
     return render_template(
-        "example.html",
+        "exampleLI.html",
         result=result,
         open_price=open_price
     )

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Logistic Regression Example</title>
+
+<style>
+
+body{
+
+font-family:'Segoe UI',Arial;
+margin:0;
+background:linear-gradient(135deg,#eef2f7,#d6e4f0);
+color:#2f3e46;
+
+}
+
+.back-button{
+
+position:fixed;
+top:20px;
+left:20px;
+background:#3a5a78;
+color:white;
+padding:10px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0px 5px 15px rgba(0,0,0,0.15);
+transition:.3s;
+
+}
+
+.back-button:hover{
+
+background:#2f3e46;
+transform:translateY(-2px);
+
+}
+
+.container{
+
+width:85%;
+margin:auto;
+padding:40px;
+
+}
+
+.title{
+
+font-size:38px;
+font-weight:bold;
+text-align:center;
+background:#3a5a78;
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:40px;
+
+}
+
+.section{
+
+font-size:28px;
+font-weight:bold;
+margin-top:50px;
+padding-left:15px;
+border-left:8px solid #5f8aa6;
+
+}
+
+.box{
+
+background:white;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0 6px 16px rgba(0,0,0,0.08);
+
+}
+
+p{
+
+font-size:17px;
+line-height:1.7;
+
+}
+
+li{
+
+font-size:17px;
+margin-bottom:8px;
+
+}
+
+.metric{
+
+font-size:20px;
+margin-top:10px;
+
+}
+
+img{
+
+border-radius:10px;
+margin-top:20px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="title">
+
+Logistic Regression Practical Example
+
+</div>
+
+
+<div class="section">
+
+Problem Description
+
+</div>
+
+<div class="box">
+
+<p>
+
+This example uses Logistic Regression to classify employee burnout levels.
+
+</p>
+
+<p>
+
+The goal is to determine whether an employee has High or Low burnout risk based on workplace and behavioral variables.
+
+</p>
+
+<p>
+
+Classification models like this are widely used in HR analytics, psychology research, and workforce monitoring.
+
+</p>
+
+</div>
+
+
+<div class="section">
+
+Dataset Explanation
+
+</div>
+
+<div class="box">
+
+<p>
+
+Dataset used: <b>Mental Health Burnout Dataset</b>
+
+</p>
+
+<p>
+
+The dataset contains employee indicators such as:
+
+</p>
+
+<ul>
+
+<li>Working hours</li>
+
+<li>Mental fatigue score</li>
+
+<li>Company type</li>
+
+<li>Remote work status</li>
+
+<li>Stress indicators</li>
+
+</ul>
+
+<p>
+
+Target variable:
+
+</p>
+
+<ul>
+
+<li>0 → Low Burnout</li>
+
+<li>1 → High Burnout</li>
+
+</ul>
+
+</div>
+
+
+<div class="section">
+
+Data Preparation
+
+</div>
+
+<div class="box">
+
+<ul>
+
+<li>Removing Medium burnout category</li>
+
+<li>Removing missing values</li>
+
+<li>Encoding categorical variables</li>
+
+<li>Feature scaling</li>
+
+<li>Train/Test split</li>
+
+<li>Model training</li>
+
+</ul>
+
+</div>
+
+
+<div class="section">
+
+Prediction Results
+
+</div>
+
+<div class="box">
+
+<p>
+
+The following metrics evaluate model performance:
+
+</p>
+
+{% if accuracy is not none %}
+
+<p class="metric">
+
+Accuracy: <b>{{ accuracy }}</b>
+
+</p>
+
+<p class="metric">
+
+Precision: <b>{{ precision }}</b>
+
+</p>
+
+<p class="metric">
+
+Recall: <b>{{ recall }}</b>
+
+</p>
+
+<p class="metric">
+
+F1 Score: <b>{{ f1 }}</b>
+
+</p>
+
+<p class="metric">
+
+ROC AUC: <b>{{ auc }}</b>
+
+</p>
+
+{% else %}
+
+<p>
+
+Metrics will appear after model training.
+
+</p>
+
+{% endif %}
+
+</div>
+
+
+<div class="section">
+
+Confusion Matrix
+
+</div>
+
+<div class="box">
+
+<p>
+
+The confusion matrix shows correct and incorrect classifications.
+
+</p>
+
+{% if accuracy is not none %}
+
+<img src="{{ url_for('static', filename='confusion_matrix.png') }}" width="500">
+
+<ul>
+
+<li>True Positive → Correct High burnout</li>
+
+<li>True Negative → Correct Low burnout</li>
+
+<li>False Positive → Predicted High but was Low</li>
+
+<li>False Negative → Predicted Low but was High</li>
+
+</ul>
+
+{% else %}
+
+<p>
+
+Matrix will appear after execution.
+
+</p>
+
+{% endif %}
+
+</div>
+
+
+<div class="section">
+
+ROC Curve
+
+</div>
+
+<div class="box">
+
+<p>
+
+The ROC curve shows the classification performance of the model.
+
+</p>
+
+{% if accuracy is not none %}
+
+<img src="{{ url_for('static', filename='roc_curve.png') }}" width="500">
+
+<p>
+
+A higher AUC indicates better model discrimination capability.
+
+</p>
+
+{% else %}
+
+<p>
+
+ROC curve will appear after execution.
+
+</p>
+
+{% endif %}
+
+</div>
+
+
+<div class="section">
+
+Results Interpretation
+
+</div>
+
+<div class="box">
+
+{% if accuracy is not none %}
+
+<p>
+
+The model achieved an accuracy of <b>{{ accuracy }}</b>.
+
+</p>
+
+<p>
+
+Precision of <b>{{ precision }}</b> indicates how many predicted burnout cases were correct.
+
+</p>
+
+<p>
+
+Recall of <b>{{ recall }}</b> shows how many real burnout cases were detected.
+
+</p>
+
+<p>
+
+F1 Score balances precision and recall giving a combined performance metric.
+
+</p>
+
+<p>
+
+The AUC score of <b>{{ auc }}</b> shows the model's ability to separate burnout classes.
+
+</p>
+
+{% if auc > 0.80 %}
+
+<p>
+
+Model performance is considered <b>strong</b>.
+
+</p>
+
+{% elif auc > 0.70 %}
+
+<p>
+
+Model performance is considered <b>acceptable</b>.
+
+</p>
+
+{% else %}
+
+<p>
+
+Model performance could be improved.
+
+</p>
+
+{% endif %}
+
+<p>
+
+This demonstrates how Logistic Regression can support mental health classification problems.
+
+</p>
+
+{% else %}
+
+<p>
+
+Interpretation will appear after execution.
+
+</p>
+
+{% endif %}
+
+</div>
+
+
+<div class="section">
+
+Results Visualization
+
+</div>
+
+<div class="box">
+
+<p>
+
+This example shows how classification models can detect burnout risk.
+
+</p>
+
+<p>
+
+Organizations could use similar models to identify employees needing support.
+
+</p>
+
+<p>
+
+This demonstrates the practical application of Machine Learning classification.
+
+</p>
+
+</div>
+
+
+</div>
+
+</body>
+
+<a href="/LogisticRegression" class="back-button">
+
+← go back to the previous page
+
+</a>
+
+</html>

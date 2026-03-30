@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Linear Regression Example</title>
+
+<style>
+
+body{
+
+font-family:'Segoe UI',Arial;
+margin:0;
+background:linear-gradient(135deg,#fff5f5,#f8d7da);
+color:#5a0f0f;
+
+}
+.back-button{
+
+position:fixed;
+top:20px;
+left:20px;
+background:#a4161a;
+color:white;
+padding:10px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0px 5px 15px rgba(0,0,0,0.15);
+transition:.3s;
+font-size:15px;
+
+}
+
+.back-button:hover{
+
+background:#6a040f;
+transform:translateY(-2px);
+
+}
+.container{
+
+width:85%;
+margin:auto;
+padding:40px;
+
+}
+
+.title{
+
+font-size:38px;
+font-weight:bold;
+text-align:center;
+background:#a4161a;
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:40px;
+
+}
+
+.section{
+
+font-size:28px;
+font-weight:bold;
+margin-top:50px;
+padding-left:15px;
+border-left:8px solid #e5383b;
+
+}
+
+.box{
+
+background:white;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0 6px 16px rgba(0,0,0,0.08);
+
+}
+
+p{
+
+font-size:17px;
+line-height:1.7;
+
+}
+
+li{
+
+font-size:17px;
+margin-bottom:8px;
+
+}
+
+.form-box{
+
+background:#fff0f0;
+padding:30px;
+border-radius:15px;
+text-align:center;
+margin-top:40px;
+
+}
+
+input{
+
+padding:12px;
+width:250px;
+border-radius:8px;
+border:1px solid #ccc;
+font-size:16px;
+margin-top:10px;
+
+}
+
+button{
+
+background:#a4161a;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+font-size:16px;
+margin-left:10px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+
+background:#6a040f;
+
+}
+
+.result{
+
+margin-top:25px;
+font-size:22px;
+font-weight:bold;
+color:#a4161a;
+
+}
+
+.example-title{
+
+font-size:24px;
+font-weight:bold;
+margin-bottom:15px;
+
+}
+
+.graph{
+
+text-align:center;
+margin-top:25px;
+
+}
+
+.graph img{
+
+border-radius:10px;
+box-shadow:0 5px 15px rgba(0,0,0,0.15);
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="title">
+
+Linear Regression Practical Example
+
+</div>
+
+<div class="section">
+Problem Description
+</div>
+
+<div class="box">
+
+<p>
+The problem addressed in this example is the prediction of stock prices using Machine Learning techniques. Financial markets generate large amounts of historical data that can be analyzed to detect patterns and trends.
+</p>
+
+<p>
+Predicting stock prices is important because it can help investors, analysts, and financial institutions make better decisions based on data instead of intuition.
+</p>
+
+<p>
+In this case, a Linear Regression model is used to learn the relationship between market indicators and the closing price of a stock.
+</p>
+
+<p>
+The objective is to estimate the closing price based on historical variables.
+</p>
+
+</div>
+
+<div class="section">
+Dataset Explanation
+</div>
+
+<div class="box">
+
+<p>
+The dataset used in this example contains historical financial information from the stock market.
+</p>
+
+<p>
+Dataset used: <b>Tesla Stock Price Dataset (NASDAQ TSLA historical data)</b>
+</p>
+
+<p>
+It includes daily records of stock activity such as prices and trading volume.
+</p>
+
+<p>
+This dataset allows the model to learn how different financial indicators affect the stock price.
+</p>
+
+</div>
+
+<div class="section">
+Variables Used
+</div>
+
+<div class="box">
+
+<p><b>Independent variable:</b></p>
+
+<ul>
+<li>Open price</li>
+</ul>
+
+<p><b>Dependent variable:</b></p>
+
+<ul>
+<li>Close price</li>
+</ul>
+
+</div>
+
+<div class="section">
+Data Preparation
+</div>
+
+<div class="box">
+
+<ul>
+
+<li>Removing null values</li>
+
+<li>Selecting relevant variables</li>
+
+<li>Splitting data into training and testing sets</li>
+
+<li>Training the regression model</li>
+
+</ul>
+
+</div>
+
+<div class="section">
+Regression Graph
+</div>
+
+<div class="box">
+
+<p>
+The regression graph shows the real Tesla dataset points, the regression line learned by the model, and the prediction generated from the input value.
+</p>
+
+<p>
+The scatter points represent real historical data while the red line represents the trend learned by the Linear Regression algorithm.
+</p>
+
+{% if result is not none %}
+
+<div class="graph">
+
+<img src="{{ url_for('static', filename='regression.png') }}" width="550">
+
+<p>
+
+Prediction generated for Open Price <b>{{ open_price }}</b>
+
+</p>
+
+</div>
+
+{% else %}
+
+<p>
+The regression visualization will appear after generating a prediction.
+</p>
+
+{% endif %}
+
+</div>
+
+<div class="section">
+Results Interpretation
+</div>
+
+<div class="box">
+
+<p>
+The model predicts the closing price based on the open price.
+</p>
+
+<p>
+If the predicted value is close to real values, the model has good performance.
+</p>
+
+<p>
+This demonstrates how linear regression can detect relationships between financial variables.
+</p>
+
+{% if result is not none %}
+
+<p>
+
+For an opening price of <b>{{ open_price }}</b>,
+the model predicts a closing price of
+<b>{{ result }}</b>.
+
+</p>
+
+<p>
+
+This suggests a positive correlation between opening and closing prices according to the trained Tesla regression model.
+
+</p>
+
+<p>
+
+This type of prediction can help analysts estimate possible market behavior based on early trading values.
+
+</p>
+
+{% else %}
+
+<p>
+Model interpretation will appear after prediction.
+</p>
+
+{% endif %}
+
+</div>
+
+<div class="section">
+Prediction Form (Flask)
+</div>
+
+<div class="form-box">
+
+<div class="example-title">
+
+Enter an opening price to predict the closing price
+
+</div>
+
+<form method="post">
+
+<label>Open Price</label>
+
+<br>
+
+<input type="number" step="any" name="open_price" required>
+
+<button type="submit">
+
+Predict
+
+</button>
+
+</form>
+
+{% if result is not none %}
+
+<div class="result">
+
+Estimated Closing Price: {{ result }}
+
+</div>
+
+{% endif %}
+
+</div>
+
+<div class="section">
+Results Visualization
+</div>
+
+<div class="box">
+
+<p>
+After entering a value, the system displays the predicted closing price generated by the Machine Learning model.
+</p>
+
+<p>
+This demonstrates how a trained model can be used in a real application using Flask.
+</p>
+
+{% if result is not none %}
+
+<p>
+
+<b>Input value:</b> {{ open_price }}
+
+</p>
+
+<p>
+
+<b>Predicted value:</b> {{ result }}
+
+</p>
+
+<p>
+
+The regression graph highlights this prediction compared to the historical Tesla stock behavior.
+
+</p>
+
+<p>
+
+This demonstrates how Machine Learning models transform numerical input into useful financial predictions.
+
+</p>
+
+{% else %}
+
+<p>
+
+Prediction values will appear here after using the form.
+
+</p>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</body>
+
+<a href="/LinearRegression" class="back-button">
+← go back to the previous page
+</a>
+
+</html>

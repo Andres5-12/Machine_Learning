@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Random Forest Concepts</title>
+
+<style>
+
+body{
+font-family:'Segoe UI',Arial;
+margin:0;
+background:linear-gradient(135deg,#eef7f1,#d4f1e4);
+color:#2f3e46;
+}
+
+.back-button{
+position:absolute;
+top:20px;
+left:20px;
+background:#2d6a4f;
+color:white;
+padding:10px 20px;
+border-radius:10px;
+text-decoration:none;
+font-weight:bold;
+box-shadow:0px 4px 12px rgba(0,0,0,0.15);
+transition:.3s;
+}
+
+.back-button:hover{
+background:#1b4332;
+transform:translateY(-2px);
+}
+
+.container{
+width:85%;
+margin:auto;
+padding:40px;
+}
+
+.main-title{
+font-size:40px;
+font-weight:bold;
+text-align:center;
+background:#2d6a4f;
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:40px;
+}
+
+.section{
+font-size:30px;
+font-weight:bold;
+margin-top:50px;
+padding-left:15px;
+border-left:8px solid #52b788;
+}
+
+.subtitle{
+font-size:22px;
+font-weight:bold;
+margin-top:25px;
+}
+
+.box{
+background:#f7fff9;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0px 6px 16px rgba(0,0,0,0.08);
+}
+
+p{
+font-size:17px;
+line-height:1.7;
+}
+
+li{
+font-size:17px;
+margin-bottom:8px;
+}
+
+.highlight{
+background:#d8f3dc;
+padding:12px;
+border-radius:8px;
+margin:15px 0;
+font-weight:bold;
+text-align:center;
+}
+
+.button-section{
+text-align:center;
+margin-top:60px;
+}
+
+.example-text{
+font-size:18px;
+margin-bottom:20px;
+color:#2d6a4f;
+}
+
+.example-button{
+background:#2d6a4f;
+color:white;
+padding:15px 30px;
+border-radius:10px;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+transition:.3s;
+box-shadow:0px 5px 12px rgba(0,0,0,0.15);
+}
+
+.example-button:hover{
+background:#1b4332;
+transform:translateY(-3px);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="main-title">
+Random Forest - Basic Concepts
+</div>
+
+<!-- WHAT IS THE MODEL -->
+
+<div class="section">
+What is Random Forest
+</div>
+
+<div class="box">
+
+<p>
+Random Forest is a supervised Machine Learning algorithm used for classification and regression problems.
+</p>
+
+<p>
+In classification tasks (RandomForestClassifier), it is used to predict categories such as "High risk" or "Low risk".
+</p>
+
+<p>
+Instead of using a single model, Random Forest combines multiple decision trees to create a more accurate and robust prediction system.
+</p>
+
+<div class="highlight">
+Random Forest = Many Decision Trees + Voting System
+</div>
+
+</div>
+
+<!-- HOW IT WORKS -->
+
+<div class="section">
+How it Works
+</div>
+
+<div class="box">
+
+<p>
+Random Forest works by creating multiple decision trees and combining their results.
+</p>
+
+<ul>
+<li>It randomly selects subsets of the data (bootstrap sampling)</li>
+<li>It randomly selects subsets of features</li>
+<li>Each tree is trained independently</li>
+<li>Each tree makes its own prediction</li>
+<li>The final prediction is made by majority voting</li>
+</ul>
+
+<p>Example:</p>
+
+<ul>
+<li>Tree 1 → High</li>
+<li>Tree 2 → Low</li>
+<li>Tree 3 → High</li>
+</ul>
+
+<p>
+Final prediction: <b>High</b>
+</p>
+
+</div>
+
+<!-- CHARACTERISTICS -->
+
+<div class="section">
+Main Characteristics
+</div>
+
+<div class="box">
+
+<ul>
+<li>Uses multiple decision trees (ensemble learning)</li>
+<li>Introduces randomness to improve performance</li>
+<li>Reduces overfitting compared to a single tree</li>
+<li>Works well with large datasets</li>
+<li>Can handle both numerical and categorical data</li>
+<li>Captures complex and non-linear relationships</li>
+</ul>
+
+</div>
+
+<!-- ADVANTAGES -->
+
+<div class="section">
+Advantages
+</div>
+
+<div class="box">
+
+<ul>
+<li>High accuracy in many real-world problems</li>
+<li>Reduces overfitting</li>
+<li>Works well with complex data</li>
+<li>Robust to noise and missing values</li>
+<li>Requires less data preprocessing</li>
+</ul>
+
+</div>
+
+<!-- LIMITATIONS -->
+
+<div class="section">
+Limitations
+</div>
+
+<div class="box">
+
+<ul>
+<li>Can be slower than simpler models</li>
+<li>Requires more computational power</li>
+<li>Harder to interpret compared to simple models</li>
+<li>Large models can become memory-intensive</li>
+</ul>
+
+</div>
+
+<!-- TYPES -->
+
+<div class="section">
+Type of Classification Problems
+</div>
+
+<div class="box">
+
+<p>
+Random Forest can be applied to:
+</p>
+
+<ul>
+<li><b>Binary classification:</b> Yes / No</li>
+<li><b>Multiclass classification:</b> Multiple categories</li>
+</ul>
+
+<p>
+It is ideal when:
+</p>
+
+<ul>
+<li>Data is complex or non-linear</li>
+<li>There are many variables</li>
+<li>The dataset contains noise</li>
+</ul>
+
+</div>
+
+<!-- REAL WORLD -->
+
+<div class="section">
+Real-World Example
+</div>
+
+<div class="box">
+
+<div class="subtitle">
+Medical Diagnosis
+</div>
+
+<p>
+Hospitals use Random Forest to detect diseases based on patient data such as age, medical history, and lab results.
+</p>
+
+<div class="subtitle">
+Fraud Detection
+</div>
+
+<p>
+Banks use Random Forest to detect suspicious transactions based on behavior patterns.
+</p>
+
+</div>
+
+<!-- SUMMARY -->
+
+<div class="section">
+Summary
+</div>
+
+<div class="box">
+
+<p>
+Random Forest is a powerful algorithm that improves prediction accuracy by combining multiple decision trees.
+</p>
+
+<p>
+It is widely used in real-world applications due to its robustness and performance.
+</p>
+
+</div>
+
+<!-- BUTTON -->
+
+<div class="button-section">
+
+<div class="example-text">
+Click below to see a real Random Forest example with metrics and graphs.
+</div>
+
+<a href="/ExampleRA" class="example-button">
+Example
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+<a href="/" class="back-button">
+← Back to Menu
+</a>
+
+</html>

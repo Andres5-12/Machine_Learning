@@ -13,31 +13,148 @@ body{
 
 font-family:'Segoe UI',Arial;
 margin:0;
+padding-top:110px;
 background:linear-gradient(135deg,#f8f3ef,#e6d5c3);
 color:#4b3832;
 
 }
 
-.back-button{
+.navbar{
+
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#d98c7b;
+padding:18px 0;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+z-index:1000;
+
+display:flex;
+justify-content:center;
+
+}
+
+.nav-container{
+
+width:900px;
+display:flex;
+justify-content:center;
+gap:35px;
+
+}
+
+.nav-item{
+
+position:relative;
+
+}
+
+.nav-btn{
+
+color:white;
+text-decoration:none;
+font-size:17px;
+font-weight:bold;
+padding:10px 18px;
+border-radius:7px;
+transition:.3s;
+display:block;
+
+}
+
+.nav-btn:hover{
+
+background:#c37463;
+transform:translateY(-2px);
+
+}
+
+.arrow{
+
+font-size:12px;
+margin-left:6px;
+
+}
+
+/* DROPDOWN */
+
+.dropdown{
 
 position:absolute;
-top:20px;
-left:20px;
-background:#6f4e37;
-color:white;
-padding:10px 20px;
+top:48px;
+left:0;
+background:white;
 border-radius:10px;
-text-decoration:none;
-font-weight:bold;
-box-shadow:0px 4px 12px rgba(0,0,0,0.15);
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+min-width:240px;
+
+opacity:0;
+visibility:hidden;
+
+transform:translateY(-10px);
 transition:.3s;
 
 }
 
-.back-button:hover{
+.nav-item:hover > .dropdown{
 
-background:#4b3832;
-transform:translateY(-2px);
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+
+}
+
+.dropdown a{
+
+display:block;
+padding:13px 18px;
+text-decoration:none;
+color:#444;
+font-size:15px;
+transition:.2s;
+
+}
+
+.dropdown a:hover{
+
+background:#fff0ec;
+color:#d98c7b;
+padding-left:25px;
+
+}
+
+/* SECOND LEVEL */
+
+.dropdown-item{
+
+position:relative;
+
+}
+
+.sub-dropdown{
+
+position:absolute;
+top:0;
+left:240px;
+background:white;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+min-width:200px;
+
+opacity:0;
+visibility:hidden;
+
+transform:translateX(-10px);
+transition:.3s;
+
+}
+
+.dropdown-item:hover .sub-dropdown{
+
+opacity:1;
+visibility:visible;
+transform:translateX(0);
 
 }
 
@@ -156,6 +273,121 @@ transform:translateY(-3px);
 </head>
 
 <body>
+    <div class="navbar">
+
+<div class="nav-container">
+
+<div class="nav-item">
+
+<a href="/" class="nav-btn">
+Home
+</a>
+
+</div>
+
+<div class="nav-item">
+
+<a class="nav-btn">
+ML Use Cases <span class="arrow">▼</span>
+</a>
+
+<div class="dropdown">
+
+<a href="/FirstPage">
+Debt Risk Prediction
+</a>
+
+<a href="/SecondPage">
+Recommendation Systems
+</a>
+
+<a href="/ThirdPage">
+Traffic Prediction
+</a>
+
+<a href="/FourthPage">
+Fraud Detection
+</a>
+
+</div>
+
+</div>
+
+<div class="nav-item">
+
+<a class="nav-btn">
+Supervised ML <span class="arrow">▼</span>
+</a>
+
+<div class="dropdown">
+
+<div class="dropdown-item">
+
+<a>
+Linear Regression ▶
+</a>
+
+<div class="sub-dropdown">
+
+<a href="/LinearRegression">
+Basic Concepts
+</a>
+
+<a href="/ExampleLI">
+Application
+</a>
+
+</div>
+
+</div>
+
+<div class="dropdown-item">
+
+<a>
+Logistic Regression ▶
+</a>
+
+<div class="sub-dropdown">
+
+<a href="/LogisticRegression">
+Basic Concepts
+</a>
+
+<a href="/ExampleLO">
+Application
+</a>
+
+</div>
+
+</div>
+
+<div class="dropdown-item">
+
+<a>
+Random Forest ▶
+</a>
+
+<div class="sub-dropdown">
+
+<a href="/RandomForest">
+Basic Concepts
+</a>
+
+<a href="/ExampleRA">
+Application
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
 
 <div class="container">
 
@@ -445,24 +677,10 @@ This example demonstrates how linear regression can be applied to real world fin
 
 </div>
 
-<div class="button-section">
-
-<div class="example-text">
-Press the button below to see a practical example of how this linear regression model works with the dataset.
-</div>
-
-<a href="/ExampleLI" class="example-button">
-Example
-</a>
-
 </div>
 
 </div>
 
 </body>
-
-<a href="/" class="back-button">
-← Back to Menu
-</a>
 
 </html>

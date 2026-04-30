@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Unsupervised ML - Basic Concepts</title>
+<style>
+
+body{
+font-family:'Segoe UI',Arial;
+margin:0;
+padding-top:110px;
+background:linear-gradient(135deg,#eef7f1,#d4f1e4);
+color:#2f3e46;
+}
+
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+background:#022b18;
+padding:18px 0;
+box-shadow:0 5px 20px rgba(0,0,0,0.08);
+z-index:1000;
+display:flex;
+justify-content:center;
+}
+
+.nav-container{
+width:900px;
+display:flex;
+justify-content:center;
+gap:35px;
+}
+
+.nav-item{
+position:relative;
+}
+
+.nav-btn{
+color:white;
+text-decoration:none;
+font-size:17px;
+font-weight:bold;
+padding:10px 18px;
+border-radius:7px;
+transition:.3s;
+display:block;
+cursor:pointer;
+}
+
+.nav-btn:hover{
+background:#21915e;
+transform:translateY(-2px);
+}
+
+.arrow{
+font-size:12px;
+margin-left:6px;
+}
+
+.dropdown{
+position:absolute;
+top:48px;
+left:0;
+background:white;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+min-width:240px;
+opacity:0;
+visibility:hidden;
+transform:translateY(-10px);
+transition:.3s;
+}
+
+.nav-item:hover > .dropdown{
+opacity:1;
+visibility:visible;
+transform:translateY(0);
+}
+
+.dropdown a{
+display:block;
+padding:13px 18px;
+text-decoration:none;
+color:#444;
+font-size:15px;
+transition:.2s;
+}
+
+.dropdown a:hover{
+background:#89bba4;
+color:#234d3a;
+padding-left:25px;
+}
+
+.dropdown-item{
+position:relative;
+}
+
+.sub-dropdown{
+position:absolute;
+top:0;
+left:240px;
+background:white;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+min-width:200px;
+opacity:0;
+visibility:hidden;
+transform:translateX(-10px);
+transition:.3s;
+}
+
+.dropdown-item:hover .sub-dropdown{
+opacity:1;
+visibility:visible;
+transform:translateX(0);
+}
+
+/* PAGE CONTENT */
+
+.container{
+width:85%;
+margin:auto;
+padding:40px;
+}
+
+.main-title{
+font-size:40px;
+font-weight:bold;
+text-align:center;
+background:#2d6a4f;
+color:white;
+padding:25px;
+border-radius:15px;
+margin-bottom:40px;
+animation: fadeDown 0.7s ease both;
+}
+
+@keyframes fadeDown{
+from{opacity:0;transform:translateY(-30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+.section{
+font-size:30px;
+font-weight:bold;
+margin-top:50px;
+padding-left:15px;
+border-left:8px solid #52b788;
+animation: fadeUp 0.6s ease both;
+}
+
+.subtitle{
+font-size:22px;
+font-weight:bold;
+margin-top:25px;
+}
+
+.box{
+background:#f7fff9;
+padding:25px;
+border-radius:12px;
+margin-top:15px;
+box-shadow:0px 6px 16px rgba(0,0,0,0.08);
+animation: fadeUp 0.6s ease both;
+transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.box:hover{
+transform: translateY(-3px);
+box-shadow:0px 12px 28px rgba(0,0,0,0.13);
+}
+
+p{
+font-size:17px;
+line-height:1.7;
+}
+
+li{
+font-size:17px;
+margin-bottom:8px;
+}
+
+.highlight{
+background:#d8f3dc;
+padding:12px;
+border-radius:8px;
+margin:15px 0;
+font-weight:bold;
+text-align:center;
+}
+
+.formula{
+background:#022b18;
+color:#52b788;
+padding:14px 20px;
+border-radius:10px;
+font-family:monospace;
+font-size:18px;
+text-align:center;
+margin:15px 0;
+letter-spacing:1px;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+th{
+background:#2d6a4f;
+color:white;
+padding:12px;
+text-align:center;
+font-size:16px;
+}
+
+td{
+padding:10px;
+text-align:center;
+border-bottom:1px solid #d4f1e4;
+font-size:16px;
+}
+
+tr:hover td{
+background:#eef7f1;
+}
+
+.tag{
+display:inline-block;
+background:#52b788;
+color:white;
+border-radius:6px;
+padding:3px 12px;
+font-size:14px;
+font-weight:bold;
+margin:4px 2px;
+}
+
+.button-section{
+text-align:center;
+margin-top:60px;
+margin-bottom:40px;
+}
+
+.example-button{
+background:#2d6a4f;
+color:white;
+padding:15px 30px;
+border-radius:10px;
+text-decoration:none;
+font-size:18px;
+font-weight:bold;
+transition:.3s;
+box-shadow:0px 5px 12px rgba(0,0,0,0.15);
+}
+
+.example-button:hover{
+background:#1b4332;
+transform:translateY(-3px);
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+  <div class="nav-container">
+
+    <div class="nav-item">
+      <a href="/" class="nav-btn">Home</a>
+    </div>
+
+    <div class="nav-item">
+      <a class="nav-btn">ML Use Cases <span class="arrow">▼</span></a>
+      <div class="dropdown">
+        <a href="/FirstPage">Debt Risk Prediction</a>
+        <a href="/SecondPage">Recommendation Systems</a>
+        <a href="/ThirdPage">Traffic Prediction</a>
+        <a href="/FourthPage">Fraud Detection</a>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a class="nav-btn">Supervised ML <span class="arrow">▼</span></a>
+      <div class="dropdown">
+        <div class="dropdown-item">
+          <a>Linear Regression ▶</a>
+          <div class="sub-dropdown">
+            <a href="/LinearRegression">Basic Concepts</a>
+            <a href="/ExampleLI">Application</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <a>Logistic Regression ▶</a>
+          <div class="sub-dropdown">
+            <a href="/LogisticRegression">Basic Concepts</a>
+            <a href="/ExampleLO">Application</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <a>Random Forest ▶</a>
+          <div class="sub-dropdown">
+            <a href="/RandomForest">Basic Concepts</a>
+            <a href="/ExampleRA">Application</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a class="nav-btn">Unsupervised ML <span class="arrow">▼</span></a>
+      <div class="dropdown">
+        <a href="/UnsupervisedML">Basic Concepts</a>
+        <a href="/KMeansExercise">K-Means Manual Exercise</a>
+        <a href="/ClusteringApp">Clustering Application</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="main-title">
+    Unsupervised Machine Learning – Basic Concepts
+  </div>
+
+  <!-- SECTION 1 -->
+  <div class="section">What is Unsupervised Learning?</div>
+  <div class="box">
+    <p>
+      Unsupervised Machine Learning is a type of machine learning in which the algorithm learns patterns from <b>unlabeled data</b> — that is, data without predefined categories or outputs.
+    </p>
+    <p>
+      Unlike supervised learning, there is no "correct answer" provided during training. The model must discover hidden structures on its own.
+    </p>
+    <div class="highlight">
+      Unsupervised Learning = Find patterns in data without labels
+    </div>
+    <p>
+      Common tasks include clustering, dimensionality reduction, and anomaly detection.
+    </p>
+    <ul>
+      <li><b>Clustering:</b> Group similar data points together</li>
+      <li><b>Dimensionality Reduction:</b> Reduce features while keeping key information (e.g., PCA)</li>
+      <li><b>Anomaly Detection:</b> Find unusual data points that don't fit any group</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 2 -->
+  <div class="section">What is Clustering?</div>
+  <div class="box">
+    <p>
+      Clustering is the process of grouping a set of data points into <b>clusters</b> such that points within the same cluster are more similar to each other than to points in other clusters.
+    </p>
+    <p>It is one of the most popular tasks in unsupervised learning and is used in many real-world applications.</p>
+    <ul>
+      <li>Each cluster contains objects that share similar characteristics</li>
+      <li>The algorithm decides the groupings without human supervision</li>
+      <li>The number of clusters (K) is usually defined in advance</li>
+    </ul>
+    <div class="highlight">
+      Clustering = Automatically grouping similar data points together
+    </div>
+  </div>
+
+  <!-- SECTION 3 -->
+  <div class="section">What is K-Means?</div>
+  <div class="box">
+    <p>
+      <b>K-Means</b> is one of the most widely used clustering algorithms. The letter <b>K</b> represents the number of clusters you want to find in the data.
+    </p>
+    <p>The algorithm partitions the dataset into K groups, where each data point belongs to the cluster with the nearest centroid (center).</p>
+    <ul>
+      <li>You define K before running the algorithm</li>
+      <li>Each cluster is represented by its centroid</li>
+      <li>Every data point is assigned to exactly one cluster</li>
+      <li>The goal is to minimize the total distance between points and their cluster centroid</li>
+    </ul>
+    <div class="highlight">
+      K-Means = Partition data into K clusters by minimizing intra-cluster distance
+    </div>
+    <p><b>Steps of the K-Means algorithm:</b></p>
+    <ol>
+      <li>Choose K (number of clusters)</li>
+      <li>Initialize K centroids randomly</li>
+      <li>Assign each data point to the nearest centroid</li>
+      <li>Recalculate centroids as the mean of all assigned points</li>
+      <li>Repeat steps 3–4 until the centroids no longer change (convergence)</li>
+    </ol>
+  </div>
+
+  <!-- SECTION 4 -->
+  <div class="section">Centroids</div>
+  <div class="box">
+    <p>
+      A <b>centroid</b> is the center of a cluster. It represents the average position of all data points assigned to that cluster.
+    </p>
+    <p>In a 2D space, if a cluster contains the points (2,4), (4,6) and (6,8), the centroid is calculated as:</p>
+    <div class="formula">
+      Centroid = ( (2+4+6)/3 , (4+6+8)/3 ) = ( 4.0 , 6.0 )
+    </div>
+    <p>
+      Centroids are recalculated at every iteration of the K-Means algorithm. As more iterations run, the centroids move closer to the true center of each cluster until they stabilize.
+    </p>
+    <ul>
+      <li>Initial centroids are usually selected randomly</li>
+      <li>They move with each iteration to better represent the cluster</li>
+      <li>When centroids stop moving, the algorithm has <b>converged</b></li>
+    </ul>
+  </div>
+
+  <!-- SECTION 5 -->
+  <div class="section">Distance Metrics – Euclidean Distance</div>
+  <div class="box">
+    <p>
+      To assign each data point to the nearest centroid, K-Means uses a <b>distance metric</b>. The most common metric is <b>Euclidean Distance</b>.
+    </p>
+    <p>The Euclidean distance between two points A(x₁, y₁) and B(x₂, y₂) in 2D is:</p>
+    <div class="formula">
+      d(A, B) = √( (x₂ − x₁)² + (y₂ − y₁)² )
+    </div>
+    <p>For higher dimensions (n features), it generalizes to:</p>
+    <div class="formula">
+      d(A, B) = √( Σ (aᵢ − bᵢ)² )  for i = 1 to n
+    </div>
+    <p><b>Example:</b> Distance between point P(1, 2) and centroid C(4, 6):</p>
+    <div class="formula">
+      d = √( (4−1)² + (6−2)² ) = √( 9 + 16 ) = √25 = 5.0
+    </div>
+    <ul>
+      <li>Each data point is assigned to the centroid with the <b>smallest</b> Euclidean distance</li>
+      <li>Other distance metrics exist: Manhattan, Minkowski, Cosine similarity</li>
+      <li>Euclidean distance is the default for K-Means with numerical data</li>
+    </ul>
+  </div>
+
+  <!-- SECTION 6 -->
+  <div class="section">Iterative Process</div>
+  <div class="box">
+    <p>
+      K-Means is an <b>iterative algorithm</b>: it repeats two steps — assignment and update — until the model converges.
+    </p>
+    <table>
+      <tr><th>Iteration</th><th>Step</th><th>Action</th></tr>
+      <tr><td>1</td><td>Initialization</td><td>Place K centroids randomly in the data space</td></tr>
+      <tr><td>2</td><td>Assignment</td><td>Assign each point to the nearest centroid</td></tr>
+      <tr><td>3</td><td>Update</td><td>Recalculate centroids as the mean of assigned points</td></tr>
+      <tr><td>4+</td><td>Repeat</td><td>Reassign and recalculate until centroids don't move</td></tr>
+      <tr><td>Final</td><td>Convergence</td><td>Centroids are stable — algorithm stops</td></tr>
+    </table>
+    <p style="margin-top:15px;">Each iteration reduces the total within-cluster distance, making the clusters tighter and more meaningful.</p>
+  </div>
+
+  <!-- SECTION 7 -->
+  <div class="section">Variance and Convergence</div>
+  <div class="box">
+    <p>
+      <b>Variance</b> (also called <b>inertia</b> or WCSS – Within-Cluster Sum of Squares) measures how spread out the points are within each cluster:
+    </p>
+    <div class="formula">
+      WCSS = Σ Σ d(xᵢ, Cₖ)²
+    </div>
+    <p>
+      The goal of K-Means is to <b>minimize WCSS</b>. A lower WCSS means points are closer to their centroids — a better clustering result.
+    </p>
+    <p>
+      <b>Convergence</b> occurs when the centroids no longer move between iterations — meaning the cluster assignments have stabilized.
+    </p>
+    <ul>
+      <li>WCSS decreases with every iteration</li>
+      <li>The algorithm always converges, but may reach a local minimum (not always the global best)</li>
+      <li>Running K-Means multiple times with different initializations helps avoid poor local minima</li>
+      <li>The <b>Elbow Method</b> uses WCSS to choose the optimal K: plot WCSS vs K and look for the "elbow" where improvement slows</li>
+    </ul>
+    <div class="highlight">
+      Lower WCSS = Tighter, better-defined clusters
+    </div>
+  </div>
+
+  <!-- SECTION 8 -->
+  <div class="section">Real-World Applications</div>
+  <div class="box">
+    <div class="subtitle">Customer Segmentation</div>
+    <p>
+      Retailers and e-commerce platforms use K-Means to group customers by purchasing behavior, demographics, or browsing habits — enabling personalized marketing campaigns.
+    </p>
+
+    <div class="subtitle">Document Clustering</div>
+    <p>
+      Search engines and news platforms cluster articles or documents with similar topics together, helping users discover related content.
+    </p>
+
+    <div class="subtitle">Image Compression</div>
+    <p>
+      K-Means can reduce the number of colors in an image by replacing all colors with the K most representative ones, significantly reducing file size.
+    </p>
+
+    <div class="subtitle">Anomaly Detection</div>
+    <p>
+      Points that don't fit well into any cluster (high distance to centroid) may indicate anomalies — useful in network security and fraud detection.
+    </p>
+
+    <div class="subtitle">Medical Imaging</div>
+    <p>
+      Hospitals use clustering to segment regions in MRI or CT scans, helping identify tumors or tissue types automatically.
+    </p>
+
+    <div class="subtitle">Urban Planning</div>
+    <p>
+      City planners cluster geographic data to identify service zones, optimize traffic flow, or locate infrastructure like hospitals and schools.
+    </p>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="section">Summary</div>
+  <div class="box">
+    <p>Unsupervised learning allows machines to discover hidden patterns without labeled data. K-Means is one of the simplest and most effective algorithms for clustering.</p>
+    <p>Key concepts:</p>
+    <ul>
+      <li><span class="tag">Unsupervised</span> No labeled outputs required</li>
+      <li><span class="tag">Clustering</span> Group similar data points</li>
+      <li><span class="tag">K-Means</span> Iterative centroid-based clustering</li>
+      <li><span class="tag">Centroid</span> Mean position of a cluster</li>
+      <li><span class="tag">Euclidean Distance</span> Default similarity measure</li>
+      <li><span class="tag">WCSS</span> Metric to minimize — measures cluster tightness</li>
+      <li><span class="tag">Convergence</span> When centroids stop moving</li>
+    </ul>
+  </div>
+
+  <div class="button-section">
+    <a href="/KMeansExercise" class="example-button">➡ Go to Manual Exercise</a>
+  </div>
+
+</div>
+</body>
+</html>

@@ -146,3 +146,6 @@ def exampleRA():
 def clustering():
     data = Clustering.applyClustering()
     return str(data["centers"])
+
+if __name__ == "__main__":
+    app.run(debug=True)

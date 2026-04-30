@@ -5,7 +5,7 @@ from sklearn.linear_model import LinearRegression
 import os
 from LogisticRegression import getMetrics
 from RandomForest import getMetricsRF
-import Clustering
+from clustering_app import clustering_page, clustering_run
 
 app = Flask(__name__)
 
@@ -141,11 +141,27 @@ def exampleRA():
         f1=f1,
         auc=auc
     )
-
+    
 @app.route('/Clustering')
-def clustering():
-    data = Clustering.applyClustering()
-    return str(data["centers"])
+def clustering_app_page():
+    return clustering_page()
+
+@app.route('/ClusteringApp/run', methods=['POST'])
+def clustering_app_run():
+    return clustering_run()
+    
+@app.route('/UnsupervisedML')
+def unsupervised_ml():
+    return render_template('UnsupervisedML.html')
+
+@app.route('/KMeansExercise')
+def kmeans_exercise():
+    return render_template('KMeansExercise.html')
+
+@app.route('/ClusteringApp')
+def clustering_app():
+    return render_template('Clusteringapp.html') 
+
 
 if __name__ == "__main__":
     app.run(debug=True)

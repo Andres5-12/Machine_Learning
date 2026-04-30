@@ -19,9 +19,7 @@ align-items:center;
 min-height:100vh;
 }
 
-
 .navbar{
-
 position:fixed;
 top:0;
 left:0;
@@ -30,31 +28,22 @@ background:#d98c7b;
 padding:18px 0;
 box-shadow:0 5px 20px rgba(0,0,0,0.08);
 z-index:1000;
-
 display:flex;
 justify-content:center;
-
 }
 
 .nav-container{
-
 width:900px;
 display:flex;
 justify-content:center;
 gap:35px;
-
 }
 
-
-
 .nav-item{
-
 position:relative;
-
 }
 
 .nav-btn{
-
 color:white;
 text-decoration:none;
 font-size:17px;
@@ -63,27 +52,19 @@ padding:10px 18px;
 border-radius:7px;
 transition:.3s;
 display:block;
-
+cursor:pointer;
 }
 
 .nav-btn:hover{
-
 background:#c37463;
-
 }
-
 
 .arrow{
-
 font-size:12px;
 margin-left:6px;
-
 }
 
-/* DROPDOWN */
-
 .dropdown{
-
 position:absolute;
 top:48px;
 left:0;
@@ -91,52 +72,38 @@ background:white;
 border-radius:10px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 min-width:240px;
-
 opacity:0;
 visibility:hidden;
-
 transform:translateY(-10px);
 transition:.3s;
-
 }
 
 .nav-item:hover > .dropdown{
-
 opacity:1;
 visibility:visible;
 transform:translateY(0);
-
 }
 
 .dropdown a{
-
 display:block;
 padding:13px 18px;
 text-decoration:none;
 color:#444;
 font-size:15px;
 transition:.2s;
-
 }
 
 .dropdown a:hover{
-
 background:#fff0ec;
 color:#d98c7b;
 padding-left:25px;
-
 }
 
-/* SECOND LEVEL */
-
 .dropdown-item{
-
 position:relative;
-
 }
 
 .sub-dropdown{
-
 position:absolute;
 top:0;
 left:240px;
@@ -144,96 +111,71 @@ background:white;
 border-radius:10px;
 box-shadow:0 10px 30px rgba(0,0,0,0.1);
 min-width:200px;
-
 opacity:0;
 visibility:hidden;
-
 transition:.3s;
-
 }
 
 .dropdown-item:hover .sub-dropdown{
-
 opacity:1;
 visibility:visible;
-
 }
 
-/* PAGE */
-
 .page{
-
 width:900px;
 background:white;
 padding:60px;
 border-radius:10px;
 box-shadow:0 10px 25px rgba(0,0,0,0.08);
 text-align:center;
-
 }
 
 .title{
-
 font-size:38px;
 font-weight:bold;
 color:#d98c7b;
 margin-bottom:10px;
-
 }
 
 .subtitle{
-
 font-size:20px;
 color:#444;
 margin-bottom:30px;
-
 }
 
 .line{
-
 width:120px;
 height:3px;
 background:#f2b6a0;
 margin:25px auto;
-
 }
 
 .intro{
-
 font-size:18px;
 line-height:1.7;
 margin-bottom:35px;
-
 }
 
 .authors{
-
 margin-top:20px;
-
 }
 
 .author{
-
 margin:15px 0;
 font-size:18px;
-
 }
 
 .info{
-
 margin-top:35px;
 font-size:16px;
 line-height:1.6;
 color:#333;
-
 }
 
 .footer{
-
 margin-top:40px;
 font-size:15px;
 color:#777;
-
 }
 
 </style>
@@ -243,215 +185,148 @@ color:#777;
 <body>
 
 <div class="navbar">
+  <div class="nav-container">
 
-<div class="nav-container">
+    <div class="nav-item">
+      <a href="/" class="nav-btn">Home</a>
+    </div>
 
-<div class="nav-item">
+    <div class="nav-item">
+      <a class="nav-btn">ML Use Cases <span class="arrow">▼</span></a>
+      <div class="dropdown">
+        <a href="/FirstPage">Debt Risk Prediction</a>
+        <a href="/SecondPage">Recommendation Systems</a>
+        <a href="/ThirdPage">Traffic Prediction</a>
+        <a href="/FourthPage">Fraud Detection</a>
+      </div>
+    </div>
 
-<a href="/" class="nav-btn">
-Home
-</a>
+    <div class="nav-item">
+      <a class="nav-btn">Supervised ML <span class="arrow">▼</span></a>
+      <div class="dropdown">
+        <div class="dropdown-item">
+          <a>Linear Regression ▶</a>
+          <div class="sub-dropdown">
+            <a href="/LinearRegression">Basic Concepts</a>
+            <a href="/ExampleLI">Application</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <a>Logistic Regression ▶</a>
+          <div class="sub-dropdown">
+            <a href="/LogisticRegression">Basic Concepts</a>
+            <a href="/ExampleLO">Application</a>
+          </div>
+        </div>
+        <div class="dropdown-item">
+          <a>Random Forest ▶</a>
+          <div class="sub-dropdown">
+            <a href="/RandomForest">Basic Concepts</a>
+            <a href="/ExampleRA">Application</a>
+          </div>
+        </div>
+      </div>
+    </div>
 
-</div>
+    <div class="nav-item">
+      <a class="nav-btn">Unsupervised ML <span class="arrow">▼</span></a>
+      <div class="dropdown">
+        <a href="/UnsupervisedML">Basic Concepts</a>
+        <a href="/KMeansExercise">K-Means Manual Exercise</a>
+        <a href="/ClusteringApp">Clustering Application</a>
+      </div>
+    </div>
 
-<div class="nav-item">
-
-<a class="nav-btn">
-ML Use Cases <span class="arrow">▼</span>
-</a>
-
-<div class="dropdown">
-
-<a href="/FirstPage">
-Debt Risk Prediction
-</a>
-
-<a href="/SecondPage">
-Recommendation Systems
-</a>
-
-<a href="/ThirdPage">
-Traffic Prediction
-</a>
-
-<a href="/FourthPage">
-Fraud Detection
-</a>
-
-</div>
-
-</div>
-
-<div class="nav-item">
-
-<a class="nav-btn">
-Supervised ML <span class="arrow">▼</span>
-</a>
-
-<div class="dropdown">
-
-<div class="dropdown-item">
-
-<a>
-Linear Regression ▶
-</a>
-
-<div class="sub-dropdown">
-
-<a href="/LinearRegression">
-Basic Concepts
-</a>
-
-<a href="/ExampleLI">
-Application
-</a>
-
-</div>
-
-</div>
-
-<div class="dropdown-item">
-
-<a>
-Logistic Regression ▶
-</a>
-
-<div class="sub-dropdown">
-
-<a href="/LogisticRegression">
-Basic Concepts
-</a>
-
-<a href="/ExampleLO">
-Application
-</a>
-
-</div>
-
-</div>
-
-<div class="dropdown-item">
-
-<a>
-Random Forest ▶
-</a>
-
-<div class="sub-dropdown">
-
-<a href="/RandomForest">
-Basic Concepts
-</a>
-
-<a href="/ExampleRA">
-Application
-</a>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
+  </div>
 </div>
 
 <div class="page">
 
-<div class="title">
-Machine Learning Use Cases
-</div>
+  <div class="title">
+    Machine Learning Use Cases
+  </div>
 
-<div class="subtitle">
-Academic Work Presentation
-</div>
+  <div class="subtitle">
+    Academic Work Presentation
+  </div>
 
-<div class="line"></div>
+  <div class="line"></div>
 
-<div class="intro">
+  <div class="intro">
 
-Hello, this is our academic work about Machine Learning use cases.
+    Hello, this is our academic work about Machine Learning use cases.
 
-<br><br>
+    <br><br>
 
-We are <b>Kevin Andres Corredor Moreno</b> and 
-<b>Juan Camilo Garcia Quevedo</b>.
+    We are <b>Kevin Andres Corredor Moreno</b> and
+    <b>Juan Camilo Garcia Quevedo</b>.
 
-<br><br>
+    <br><br>
 
-In this project we present four important applications of Machine Learning:
+    In this project we present four important applications of Machine Learning:
 
-<br><br>
+    <br><br>
 
-<b>Debt Risk Prediction</b><br>
-<b>Recommendation Systems</b><br>
-<b>Traffic Prediction</b><br>
-<b>Fraud Detection</b>
+    <b>Debt Risk Prediction</b><br>
+    <b>Recommendation Systems</b><br>
+    <b>Traffic Prediction</b><br>
+    <b>Fraud Detection</b>
 
-<br><br>
+    <br><br>
 
-The objective of this project is to demonstrate how Machine Learning
-can be applied to real-world problems through practical examples,
-data analysis, prediction models, and interactive visualizations.
+    We also explore supervised and unsupervised learning algorithms:
 
-<br><br>
+    <br><br>
 
-We hope that our work will be informative, clear, and enjoyable.
+    <b>Linear Regression</b> · <b>Logistic Regression</b> · <b>Random Forest</b><br>
+    <b>K-Means Clustering</b>
 
-</div>
+    <br><br>
 
-<div class="line"></div>
+    The objective of this project is to demonstrate how Machine Learning
+    can be applied to real-world problems through practical examples,
+    data analysis, prediction models, and interactive visualizations.
 
-<div class="authors">
+    <br><br>
 
-<div class="author">
+    We hope that our work will be informative, clear, and enjoyable.
 
-<b>Kevin Andres Corredor Moreno</b><br>
+  </div>
 
-Debt Risk Prediction using Machine Learning<br>
+  <div class="line"></div>
 
-Recommendation Systems using Machine Learning
+  <div class="authors">
 
-</div>
+    <div class="author">
+      <b>Kevin Andres Corredor Moreno</b><br>
+      Debt Risk Prediction using Machine Learning<br>
+      Recommendation Systems using Machine Learning
+    </div>
 
-<div class="author">
+    <div class="author">
+      <b>Juan Camilo Garcia Quevedo</b><br>
+      Traffic Prediction using Machine Learning<br>
+      Fraud Detection using Machine Learning
+    </div>
 
-<b>Juan Camilo Garcia Quevedo</b><br>
+  </div>
 
-Traffic Prediction using Machine Learning<br>
+  <div class="line"></div>
 
-Fraud Detection using Machine Learning
+  <div class="info">
+    <b>University:</b> University of Cundinamarca – Chía Extension<br>
+    <b>Course:</b> Machine Learning<br>
+    <b>Professor:</b> Edison Gustavo Canon Varela<br>
+    <b>Year:</b> 2026
+  </div>
 
-</div>
+  <div class="line"></div>
 
-</div>
-
-<div class="line"></div>
-
-<div class="info">
-
-<b>University:</b> University of Cundinamarca – Chía Extension<br>
-
-<b>Course:</b> Machine Learning<br>
-
-<b>Professor:</b> Edison Gustavo Canon Varela<br>
-
-<b>Year:</b> 2026
-
-</div>
-
-<div class="line"></div>
-
-<div class="footer">
-
-Machine Learning Academic Project – Kevin Corredor & Juan Garcia
-
-</div>
+  <div class="footer">
+    Machine Learning Academic Project – Kevin Corredor & Juan Garcia
+  </div>
 
 </div>
 
 </body>
-
 </html>
